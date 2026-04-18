@@ -1,0 +1,1752 @@
+/* ORIZONS V3: EDITORIAL ARCHITECTURAL MASTER STYLESHEET
+   Focus: Geometric Precision, High-Contrast, and Deep-Navy Luxury
+*/
+
+:root {
+    /* The "Power" Palette - Gold Removed, Pure White Injected */
+    --navy-deep: #0B1F3A;    /* Primary Background */
+    --navy-mid: #1B365D;     /* UI Elements */
+    --blueprint: #8FA3BB;    /* Accents & Muted Text */
+    --arch-white: #F8F9FC;   /* Soft White for Body Text */
+    --brand-white: #FFFFFF;  /* PURE WHITE for Luxury Call-to-Actions (Replaced Gold) */
+    
+    /* Typography Scales */
+    --font-main: 'DM Sans', sans-serif;
+    --transition-smooth: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* RESET & BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none; /* We are building a custom architectural cursor */
+}
+
+body {
+    background-color: var(--navy-deep);
+    color: var(--arch-white);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* CUSTOM ARCHITECTURAL CURSOR */
+.custom-cursor {
+    width: 8px;
+    height: 8px;
+    background: var(--brand-white);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+}
+
+.cursor-follower {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--blueprint);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    transition: transform 0.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* GLOBAL NAVIGATION (GLASSMORPHISM) */
+header#main-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 30px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    transition: var(--transition-smooth);
+}
+
+header#main-nav.scrolled {
+    padding: 15px 5%;
+    background: rgba(11, 31, 58, 0.85);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo-wordmark {
+    font-weight: 500;
+    letter-spacing: 0.4em;
+    font-size: 16px;
+    color: var(--brand-white);
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--blueprint);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-left: 40px;
+    transition: var(--transition-smooth);
+}
+
+nav a:hover, nav a.active {
+    color: var(--brand-white);
+    letter-spacing: 0.3em;
+}
+
+/* HERO SHOWROOM (KEN BURNS EFFECT) */
+.hero-showroom {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* NEW: High-contrast modern architectural building */
+    background: linear-gradient(rgba(11, 31, 58, 0.7), rgba(11, 31, 58, 0.85)), 
+                url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    animation: kenBurns 20s infinite alternate;
+}
+
+@keyframes kenBurns {
+    from { transform: scale(1); }
+    to { transform: scale(1.15); }
+}
+
+.hero-showroom h1 {
+    font-size: clamp(40px, 8vw, 90px);
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    line-height: 1.1;
+    color: var(--brand-white);
+}
+
+.studio-label {
+    font-size: 12px;
+    color: var(--brand-white);
+    letter-spacing: 0.5em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* PREMIUM BUTTONS */
+.btn-primary {
+    display: inline-block;
+    padding: 18px 45px;
+    border: 1px solid var(--brand-white);
+    color: var(--brand-white);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    transition: var(--transition-smooth);
+    margin-top: 50px;
+    background: transparent;
+}
+
+.btn-primary:hover {
+    background: var(--brand-white);
+    color: var(--navy-deep) !important;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
+}
+
+/* --- ORIZONS V3 PREMIUM FOOTER --- */
+.main-footer {
+    background-color: #050C17; /* Deepest Navy from Brand Kit */
+    padding: 100px 0 40px;
+    color: var(--arch-white);
+    font-family: var(--font-main);
+}
+
+.footer-wrapper {
+    width: 85%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 80px;
+}
+
+/* BRAND COLUMN */
+.footer-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.footer-logo-container .logo-mark {
+    width: 24px;
+    height: 24px;
+    border: 1px solid var(--brand-white); 
+}
+
+.footer-logo-container .logo-text {
+    font-size: 24px;
+    letter-spacing: 0.3em;
+    font-weight: 500;
+    color: var(--brand-white);
+}
+
+.brand-bio {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--blueprint);
+    opacity: 0.8;
+    margin-bottom: 35px;
+    max-width: 320px;
+}
+
+/* SOCIAL CIRCLES */
+.social-links-container {
+    display: flex;
+    gap: 15px;
+}
+
+.social-circle {
+    width: 45px;
+    height: 45px;
+    border: 1px solid rgba(143, 163, 187, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+}
+
+.social-circle svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--arch-white);
+    transition: transform 0.4s ease;
+}
+
+/* Hover Animations */
+.social-circle:hover { border-color: var(--brand-white); background-color: var(--brand-white); transform: translateY(-5px); }
+.social-circle:hover svg { fill: var(--navy-deep); }
+
+/* LIST COLUMNS */
+.footer-title {
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    color: var(--brand-white);
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.footer-list {
+    list-style: none;
+}
+
+.footer-list li {
+    margin-bottom: 12px;
+}
+
+.footer-list a, .contact-info-block p {
+    text-decoration: none;
+    color: var(--blueprint);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    transition: var(--transition-smooth);
+    opacity: 0.7;
+}
+
+.footer-list a:hover {
+    color: var(--brand-white);
+    opacity: 1;
+    padding-left: 5px;
+}
+
+.contact-info-block p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.contact-link {
+    display: block;
+    cursor: pointer;
+}
+
+/* BOTTOM BAR */
+.footer-bottom-bar {
+    border-top: 1px solid rgba(143, 163, 187, 0.1);
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright-text, .design-credit {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--blueprint);
+    opacity: 0.6;
+}
+
+.accent-text {
+    color: var(--brand-white);
+    font-weight: 500;
+}
+
+@media (max-width: 1024px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+
+/* Safety Check */
+body:not(:has(.custom-cursor)) * {
+    cursor: auto !important;
+}
+
+/* Ensure the custom cursor is always on top */
+.custom-cursor, .cursor-follower {
+    z-index: 10000 !important; 
+    pointer-events: none;
+}
+
+/* =========================================
+   SITE EXECUTIONS (SPREADING ACCORDION & ANIMATED BG)
+   ========================================= */
+
+.site-executions {
+    position: relative;
+    padding: 120px 5%;
+    background-color: #02060C; /* Slightly darker than the footer to create depth */
+    text-align: center;
+    overflow: hidden; /* Keeps the animated background contained */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Crisp line separating from the footer */
+}
+
+/* The Cinematic Animated Background Layer */
+.site-executions::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Subtle architectural blueprint/texture image */
+    background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop'); 
+    background-size: cover;
+    background-position: center;
+    opacity: 0.08; /* Barely visible, highly premium */
+    z-index: 0;
+    animation: slowPan 25s infinite alternate linear;
+}
+
+@keyframes slowPan {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.15); }
+}
+
+/* Ensure content sits on top of the animated background */
+.executions-header, .executions-container {
+    position: relative;
+    z-index: 1;
+}
+
+.executions-header {
+    margin-bottom: 60px;
+}
+
+.executions-header .label {
+    font-size: 10px;
+    color: var(--blueprint);
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.executions-header h2 {
+    font-size: 26px;
+    color: var(--brand-white);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+/* The Spreading Container */
+.executions-container {
+    display: flex;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 500px;
+}
+
+/* Individual Expanding Cards */
+.execution-card {
+    position: relative;
+    flex: 1; 
+    overflow: hidden;
+    background: #000;
+    text-decoration: none;
+    transition: flex 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.execution-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.5;
+    /* PRO TIP: Scales up the image by 35% to perfectly crop out YouTube's baked-in black bars! */
+    transform: scale(1.35); 
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Glassmorphic Play Button */
+.play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(11, 31, 58, 0.5); 
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0;
+}
+
+.play-overlay svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--brand-white);
+    stroke: var(--brand-white);
+    margin-left: 4px; 
+}
+
+/* Hover Dynamics */
+.executions-container:hover .execution-card {
+    flex: 1; 
+}
+
+.executions-container .execution-card:hover {
+    flex: 3; 
+}
+
+.execution-card:hover img {
+    opacity: 0.8;
+    /* Zooms in slightly more from the 1.35 base crop */
+    transform: scale(1.45); 
+}
+
+.execution-card:hover .play-overlay {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    border-color: var(--brand-white);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Mobile Fallback */
+@media (max-width: 900px) {
+    .executions-container {
+        flex-direction: column;
+        height: auto;
+    }
+    .execution-card {
+        height: 300px;
+        flex: none; 
+    }
+    .executions-container .execution-card:hover {
+        flex: none; 
+    }
+    .play-overlay {
+        opacity: 1; 
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Mobile Fallback */
+@media (max-width: 900px) {
+    .executions-container {
+        flex-direction: column;
+        height: auto;
+    }
+    .execution-card {
+        height: 300px;
+        flex: none; 
+    }
+    .executions-container .execution-card:hover {
+        flex: none; 
+    }
+    .play-overlay {
+        opacity: 1; 
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* =========================================
+   MOBILE OPTIMIZATIONS & TOUCH FIXES
+   ========================================= */
+
+/* 1. Disable Custom Cursor on Mobile/Touch Devices */
+@media (hover: none) and (pointer: coarse) {
+    .custom-cursor, .cursor-follower {
+        display: none !important;
+    }
+    body *, a, button {
+        cursor: auto !important;
+    }
+}
+
+/* 2. Mobile Navigation & Header Scaling */
+@media (max-width: 850px) {
+    header#main-nav {
+        flex-direction: column;
+        padding: 20px 5%;
+        gap: 20px;
+    }
+    
+    /* Shrink the logo slightly to fit */
+    .brand-icon { height: 32px; }
+    .brand-title { font-size: 24px; margin-bottom: 2px;}
+    .brand-tagline { font-size: 8px; }
+
+    /* Wrap the navigation links neatly under the logo */
+    header#main-nav nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        width: 100%;
+    }
+    
+    header#main-nav nav a {
+        font-size: 12px;
+    }
+
+    /* Shrink the giant hero text so it doesn't break boundaries */
+    .services-hero h1 {
+        font-size: 45px;
+        margin-top: 40px;
+    }
+    
+    .hero-showroom h1 {
+        font-size: 45px;
+    }
+}
+
+/* 3. Mobile Footer Adjustments */
+@media (max-width: 600px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* Stack everything in 1 column on phones */
+        gap: 40px;
+        text-align: center;
+    }
+    
+    /* Center the branding in the footer */
+    .footer-col-brand .brand-link {
+        justify-content: center;
+    }
+
+    .footer-logo-container {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .social-links-container {
+        justify-content: center;
+    }
+    
+    .footer-bottom-bar {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+/* Navbar YouTube Icon Styling */
+.nav-social-icon {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 15px;
+    color: #FFFFFF;
+}
+
+.nav-social-icon svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease, stroke 0.3s ease;
+}
+
+.nav-social-icon:hover svg {
+    transform: scale(1.15) translateY(-2px);
+    stroke: #8FA3BB; /* Your blueprint accent color */
+}
+
+/* =========================================
+   WHO WE ARE SECTION (EDITORIAL CENTERED)
+   ========================================= */
+
+.who-we-are-section {
+    padding: 160px 5%;
+    background-color: var(--navy-deep); /* #050C17 */
+    text-align: center;
+    position: relative;
+}
+
+.who-we-are-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 1. Centered Header with Animated Lines */
+.section-label-center {
+    font-size: 11px;
+    color: var(--blueprint);
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.accent-line {
+    height: 1px;
+    background-color: rgba(143, 163, 187, 0.4);
+    width: 0px; /* Starts at 0, JS will animate it to 60px */
+}
+
+/* 2. The Massive Centerpiece Quote */
+.philosophy-quote {
+    font-size: clamp(32px, 4.5vw, 52px);
+    font-weight: 300;
+    color: var(--brand-white);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    max-width: 1000px;
+    margin: 0 auto 80px auto;
+}
+
+/* 3. Balanced Dual-Column Text */
+.philosophy-text-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto 80px auto;
+}
+
+.info-text {
+    font-size: 16px;
+    color: var(--blueprint);
+    line-height: 1.8;
+    font-weight: 400;
+}
+
+/* 4. Structural Stats Banner */
+.stats-banner {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 5%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Top and Bottom animated borders */
+.stat-border {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0%; /* Starts at 0, JS expands to 100% */
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.stat-border.top { top: 0; }
+.stat-border.bottom { bottom: 0; }
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.stat-number-wrapper {
+    font-size: 55px;
+    font-weight: 300;
+    color: var(--brand-white);
+    line-height: 1;
+    display: flex;
+    align-items: center;
+}
+
+.stat-label {
+    font-size: 10px;
+    color: var(--blueprint);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.string-stat {
+    font-size: 45px;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 900px) {
+    .philosophy-text-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    .stats-banner {
+        flex-direction: column;
+        gap: 50px;
+        padding: 50px 0;
+    }
+}
+
+/* =========================================
+   WHAT WE DO SECTION (3-PANEL, ENHANCED TYPOGRAPHY)
+   ========================================= */
+
+.what-we-do-section {
+    padding: 160px 5%;
+    background-color: var(--navy-deep);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center; 
+}
+
+.wwd-header {
+    margin-bottom: 80px;
+}
+
+.wwd-header .section-label-center {
+    font-size: 12px; /* Increased */
+    color: var(--blueprint);
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.wwd-header .accent-line {
+    height: 1px;
+    background-color: rgba(143, 163, 187, 0.4);
+    width: 0px; /* Animated via JS */
+}
+
+.wwd-title {
+    font-size: clamp(45px, 6vw, 75px); /* Made the title larger */
+    font-weight: 300;
+    color: var(--brand-white);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+/* The Expanding Accordion Container */
+.wwd-accordion {
+    display: flex;
+    gap: 20px;
+    max-width: 1450px; /* Widened to support bigger text */
+    margin: 0 auto;
+    height: 650px; /* Taller to feel more cinematic */
+}
+
+/* Individual Service Panels */
+.wwd-panel {
+    flex: 1; 
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: left;
+    padding: 60px 45px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: rgba(255, 255, 255, 0.01);
+    transition: flex 0.8s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.5s ease;
+}
+
+.wwd-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(1.1);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 0;
+}
+
+.wwd-panel::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(5, 12, 23, 1) 0%, rgba(5, 12, 23, 0.2) 100%);
+    z-index: 1;
+}
+
+.wwd-content {
+    position: relative;
+    z-index: 2;
+    max-width: 420px; 
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.wwd-panel-number {
+    font-size: 15px; /* Increased */
+    color: var(--blueprint);
+    letter-spacing: 0.1em;
+    margin-bottom: 25px;
+    display: block;
+}
+
+.wwd-panel-title {
+    font-size: 42px; /* Increased significantly */
+    font-weight: 300;
+    color: var(--brand-white);
+    margin-bottom: 12px;
+}
+
+.wwd-panel-subtitle {
+    font-size: 11px; /* Increased */
+    color: var(--blueprint);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+}
+
+.wwd-panel-desc {
+    font-size: 16px; /* Increased for readability */
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.8;
+    margin-bottom: 45px;
+    transition: color 0.4s ease;
+}
+
+.wwd-list {
+    list-style: none;
+    padding: 0; margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.wwd-list li {
+    font-size: 15px; /* Increased */
+    color: rgba(255, 255, 255, 0.45);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: color 0.4s ease;
+}
+
+.wwd-list li::before {
+    content: '';
+    width: 15px;
+    height: 1px;
+    background-color: var(--blueprint);
+    display: inline-block;
+    transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease;
+}
+
+/* =========================================
+   THE MAGIC HOVER EFFECTS
+   ========================================= */
+
+.wwd-accordion:hover .wwd-panel {
+    flex: 1; 
+}
+.wwd-accordion .wwd-panel:hover {
+    flex: 2.5; /* Dramatic width expansion */
+}
+
+/* Float the text up slightly on hover */
+.wwd-panel:hover .wwd-content {
+    transform: translateY(-8px); 
+}
+
+.wwd-panel:hover .wwd-bg { opacity: 0.35; transform: scale(1.02); }
+.wwd-panel:hover .wwd-panel-desc { color: rgba(255, 255, 255, 0.95); }
+.wwd-panel:hover .wwd-list li { color: var(--brand-white); }
+.wwd-panel:hover .wwd-list li::before { width: 35px; background-color: var(--brand-white); }
+
+/* Responsive Fallback */
+@media(max-width: 1024px) {
+    .wwd-accordion { flex-direction: column; height: auto; }
+    .wwd-panel { padding: 40px 25px; }
+    .wwd-accordion .wwd-panel:hover { flex: auto; }
+    .wwd-panel:hover .wwd-content { transform: none; }
+}
+
+/* =========================================
+   WHAT WE STAND FOR (SEPARATED LUXURY CARDS)
+   ========================================= */
+
+.principles-section {
+    padding: 140px 5%;
+    background-color: var(--navy-deep); 
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.principles-header {
+    margin-bottom: 70px;
+}
+
+.principles-header .section-label-center {
+    font-size: 11px;
+    color: var(--blueprint);
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.principles-header .accent-line {
+    height: 1px;
+    background-color: rgba(143, 163, 187, 0.4);
+    width: 0px; /* Animated via JS */
+}
+
+.principles-header h2 {
+    font-size: clamp(35px, 5vw, 55px);
+    font-weight: 300;
+    color: var(--brand-white);
+    letter-spacing: -0.02em;
+}
+
+/* The Grid: Now uses distinct gaps to separate the boxes */
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px; /* Perfect separation between cards */
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* The Individual Separated Cards */
+.principle-card {
+    background-color: var(--navy-deep); 
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Subtle resting border */
+    padding: 50px 35px;
+    text-align: left;
+    height: 300px; /* Keeps them beautifully short and wide */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    overflow: hidden;
+    /* Buttery smooth transitions for the float effect */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+                box-shadow 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+                border-color 0.4s ease;
+}
+
+/* THE MAGIC: The hidden line that draws on hover */
+.principle-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--brand-white);
+    transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* The Hover State: Float, Shadow, and Line Draw */
+.principle-card:hover {
+    transform: translateY(-12px); /* Floats up */
+    border-color: rgba(255, 255, 255, 0.2); /* Border illuminates */
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5); /* Deep luxurious shadow */
+}
+
+.principle-card:hover::before {
+    width: 100%; /* The line shoots across the top */
+}
+
+/* Typography styling */
+.princ-title {
+    font-size: 18px;
+    color: var(--brand-white);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    font-weight: 500;
+    transition: transform 0.4s ease;
+}
+
+.princ-desc {
+    font-size: 15px;
+    color: var(--blueprint);
+    line-height: 1.8;
+    opacity: 0.6;
+    transition: opacity 0.4s ease, color 0.4s ease;
+}
+
+/* Text brightens on hover */
+.principle-card:hover .princ-desc {
+    opacity: 1;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive Breakdown */
+@media (max-width: 1100px) {
+    .principles-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+}
+@media (max-width: 650px) {
+    .principles-grid { grid-template-columns: 1fr; gap: 20px; }
+    .principle-card { height: auto; padding: 40px 30px; }
+}
+
+/* =========================================
+   HOW WE WORK (HORIZONTAL BOX-LESS TIMELINE)
+   ========================================= */
+
+.how-we-work-section {
+    position: relative;
+    padding: 160px 5%;
+    background-color: var(--navy-deep); /* Fixed: Brand kit background */
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.hww-wrapper {
+    max-width: 1400px; /* Wide enough to fit 5 steps horizontally */
+    margin: 0 auto;
+    position: relative;
+}
+
+.hww-header {
+    margin-bottom: 100px;
+}
+
+.hww-header .section-label-center {
+    font-size: 11px;
+    color: var(--blueprint);
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.hww-header .accent-line {
+    height: 1px;
+    background-color: rgba(143, 163, 187, 0.4);
+    width: 0px; /* JS Animated */
+}
+
+.hww-title {
+    font-size: clamp(45px, 6vw, 70px);
+    font-weight: 300;
+    color: var(--brand-white);
+    letter-spacing: -0.02em;
+    margin-bottom: 30px;
+}
+
+.hww-intro {
+    font-size: 18px;
+    color: var(--blueprint);
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 400;
+}
+
+/* --- HORIZONTAL TIMELINE STRUCTURE --- */
+.hww-timeline-hz {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-top: 80px;
+}
+
+/* The Continuous Horizontal Architectural Beam */
+.timeline-beam-hz {
+    position: absolute;
+    top: 6px; /* Aligns perfectly with the center of the nodes */
+    left: 0;
+    height: 1px;
+    width: 0%; /* JS will draw this from 0 to 100% */
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 0;
+}
+
+/* The Individual Steps */
+.hww-step-hz {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    padding: 0 20px;
+}
+
+/* The Glowing Nodes on the line */
+.timeline-node-hz {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--navy-deep); /* Matches BG to look like a cutout */
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    margin-bottom: 40px;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+}
+
+/* Text Content */
+.step-content-hz {
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.step-title-hz {
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--brand-white);
+    letter-spacing: -0.01em;
+    margin-bottom: 15px;
+}
+
+.step-desc-hz {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.8;
+    transition: color 0.4s ease;
+}
+
+/* --- THE HOVER DYNAMICS --- */
+.hww-step-hz:hover .timeline-node-hz {
+    border-color: var(--brand-white);
+    background-color: var(--brand-white);
+    transform: scale(1.5);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Sexy glow effect */
+}
+
+.hww-step-hz:hover .step-content-hz {
+    transform: translateY(-8px); /* Text elegantly floats up */
+}
+
+.hww-step-hz:hover .step-desc-hz {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Mobile Adjustments (Stacks vertically if screen is too narrow) */
+@media (max-width: 900px) {
+    .hww-timeline-hz { flex-direction: column; gap: 60px; }
+    .timeline-beam-hz { width: 1px !important; height: 100% !important; left: 50%; top: 0; transform: translateX(-50%); }
+}
+
+/* =========================================
+   06. CONSULTATION CTA (SPOTLIGHT & WHATSAPP)
+   ========================================= */
+
+.consultation-section {
+    position: relative;
+    padding: 180px 5%;
+    background-color: var(--navy-deep);
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+}
+
+/* Subtle radial glow to act as a spotlight on the CTA */
+.consultation-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, rgba(5,12,23,0) 70%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.consult-wrapper {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    z-index: 1;
+}
+
+/* Architectural Framing Corners */
+.consult-frame {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-color: rgba(255, 255, 255, 0.2);
+    border-style: solid;
+    opacity: 0; /* JS reveals these */
+}
+.consult-frame.top-left { top: 0; left: 0; border-width: 1px 0 0 1px; }
+.consult-frame.top-right { top: 0; right: 0; border-width: 1px 1px 0 0; }
+.consult-frame.bottom-left { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
+.consult-frame.bottom-right { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+
+.consult-header {
+    margin-bottom: 50px;
+}
+
+.consult-header .section-label-center {
+    font-size: 11px;
+    color: var(--blueprint);
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.consult-title {
+    font-size: clamp(40px, 6vw, 65px);
+    font-weight: 300;
+    color: var(--brand-white);
+    letter-spacing: -0.02em;
+    margin-bottom: 25px;
+    line-height: 1.1;
+}
+
+.consult-desc {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+    font-weight: 400;
+}
+
+/* The Sexy WhatsApp Button */
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 45px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px; /* Perfect pill shape */
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    background-color: transparent;
+}
+
+/* Hover Fill Background */
+.whatsapp-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: var(--brand-white);
+    transform: translateY(100%);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 0;
+}
+
+.whatsapp-btn:hover {
+    border-color: var(--brand-white);
+    box-shadow: 0 15px 30px rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+}
+
+.whatsapp-btn:hover::before {
+    transform: translateY(0);
+}
+
+/* Button Internals */
+.wa-icon {
+    width: 22px;
+    height: 22px;
+    fill: var(--brand-white);
+    position: relative;
+    z-index: 1;
+    transition: fill 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-text {
+    font-size: 14px;
+    color: var(--brand-white);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+    transition: color 0.5s ease;
+}
+
+/* Invert colors on hover */
+.whatsapp-btn:hover .wa-icon {
+    fill: var(--navy-deep);
+    transform: scale(1.15) rotate(-5deg); /* Playful pop */
+}
+
+.whatsapp-btn:hover .btn-text {
+    color: var(--navy-deep);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .consult-wrapper { padding: 40px 15px; }
+    .whatsapp-btn { padding: 18px 30px; width: 100%; justify-content: center; }
+}
+
+/* =========================================
+   NAVBAR LOGO & CONSULTATION BUTTON
+   ========================================= */
+
+/* Enables buttery smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth; 
+}
+
+/* Logo Styling & Alignment */
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.nav-logo { 
+    height: 35px; 
+    width: auto; 
+    /* THIS IS THE MAGIC: Turns dark pixels pure white */
+    filter: grayscale(1) invert(1) brightness(2) contrast(100);
+    transition: opacity 0.4s ease; 
+}
+
+.logo-link:hover .nav-logo {
+    opacity: 0.7;
+}
+
+/* Navbar Flexbox fix to align the new button */
+#main-nav nav {
+    display: flex;
+    align-items: center;
+    gap: 35px; /* Spaces out links nicely */
+}
+
+/* The Premium Navbar Consultation Button */
+.nav-consult-btn {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    color: var(--brand-white) !important;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    background-color: rgba(255, 255, 255, 0.02);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.nav-consult-btn:hover {
+    background-color: var(--brand-white) !important;
+    color: var(--navy-deep) !important;
+    border-color: var(--brand-white);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* WhatsApp Icon inside Navbar */
+.nav-wa-icon {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+    transition: transform 0.4s ease;
+}
+
+.nav-consult-btn:hover .nav-wa-icon {
+    transform: scale(1.2) rotate(-5deg); /* Playful magnetic pop */
+}
+
+/* =========================================
+   01.5 PRIMARY SERVICES (PORTAL BUTTONS)
+   ========================================= */
+
+.primary-services-section {
+    padding: 120px 5%;
+    background-color: var(--navy-deep);
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.services-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.primary-services-header {
+    margin-bottom: 70px;
+}
+
+.primary-services-header .section-label-center {
+    font-size: 11px;
+    color: var(--blueprint);
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.primary-services-header h2 {
+    font-size: clamp(35px, 5vw, 55px);
+    font-weight: 300;
+    color: var(--brand-white);
+    letter-spacing: -0.02em;
+}
+
+/* The Massive Button Container */
+.services-btn-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* The Portal Pills */
+.portal-btn {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    padding: 40px 50px;
+    border-radius: 100px; /* Sexy ultra-pill shape */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    text-decoration: none;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.01);
+    /* Buttery smooth structural transitions */
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* The Hover Sweep Background */
+.portal-bg {
+    position: absolute;
+    top: 0;
+    left: -100%; /* Hidden to the left */
+    width: 100%;
+    height: 100%;
+    background-color: var(--brand-white);
+    transition: left 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 0;
+}
+
+/* Content sitting above the sweep */
+.portal-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.portal-label {
+    font-size: 12px;
+    color: var(--blueprint);
+    letter-spacing: 0.2em;
+    font-weight: 500;
+    transition: color 0.5s ease;
+}
+
+.portal-title {
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--brand-white);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: color 0.5s ease;
+}
+
+.portal-arrow {
+    width: 32px;
+    height: 32px;
+    color: var(--brand-white);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* --- THE MINDBLOWING HOVER EFFECTS --- */
+.portal-btn:hover {
+    transform: translateY(-8px);
+    border-color: var(--brand-white);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+.portal-btn:hover .portal-bg {
+    left: 0; /* Sweeps in from the left */
+}
+
+/* Invert all text/icons to dark navy when the white background sweeps in */
+.portal-btn:hover .portal-label,
+.portal-btn:hover .portal-title,
+.portal-btn:hover .portal-arrow {
+    color: var(--navy-deep); 
+}
+
+/* The arrow shoots forward */
+.portal-btn:hover .portal-arrow {
+    transform: translateX(15px);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .portal-btn { padding: 30px; border-radius: 20px; }
+    .portal-title { position: static; transform: none; font-size: 22px; margin: 0 20px;}
+    .portal-label { display: none; }
+}
+
+/* =========================================
+   PROJECT EXHIBITION (FLEX GALLERY)
+   ========================================= */
+
+.project-exhibition {
+    padding: 120px 5%;
+    background-color: var(--navy-deep);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.portfolio-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.portfolio-title {
+    font-size: clamp(35px, 5vw, 55px);
+    font-weight: 300;
+    color: var(--brand-white);
+    margin-top: 30px;
+    letter-spacing: -0.02em;
+}
+
+.flex-gallery {
+    display: flex;
+    gap: 20px;
+    height: 550px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.flex-item {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: flex 1s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+}
+
+.flex-item:hover {
+    flex: 3;
+}
+
+.item-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.5) grayscale(0.5);
+    transition: filter 1s ease;
+}
+
+.flex-item:hover .item-bg {
+    filter: brightness(0.8) grayscale(0);
+}
+
+.item-overlay {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease 0.2s;
+}
+
+.flex-item:hover .item-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.item-overlay span {
+    font-size: 11px;
+    color: var(--blueprint);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.item-overlay h4 {
+    font-size: 28px;
+    color: var(--brand-white);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    margin: 0;
+}
+
+/* Responsive Fixes */
+@media (max-width: 1024px) {
+    .flex-gallery { height: auto; flex-direction: column; }
+    .flex-item { height: 300px; flex: none; }
+    .flex-item:hover { flex: none; }
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS (PHONES & TABLETS)
+   ========================================= */
+
+@media (max-width: 900px) {
+    /* 1. KILL DESKTOP CURSOR (Phones use touch, custom cursors block clicks) */
+    .custom-cursor, .cursor-follower {
+        display: none !important;
+    }
+
+    /* 2. REFORMAT NAVIGATION (Creates a sleek, swipeable horizontal menu) */
+    #main-nav {
+        flex-direction: column;
+        padding: 15px 5%;
+        gap: 15px;
+    }
+    #main-nav nav {
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch; /* Smooth iOS scrolling */
+        scrollbar-width: none; /* Hides scrollbar in Firefox */
+        padding-bottom: 5px;
+        justify-content: flex-start;
+    }
+    #main-nav nav::-webkit-scrollbar {
+        display: none; /* Hides scrollbar in Chrome/Safari */
+    }
+    .nav-consult-btn {
+        display: none; /* Hides the bulky button to save screen space */
+    }
+
+    /* 3. REDUCE MASSIVE DESKTOP PADDINGS */
+    section, .project-exhibition, .solar-teaser, .consultation-section {
+        padding: 80px 5% !important;
+    }
+
+    /* 4. STACK ALL GRIDS TO 1 COLUMN */
+    .services-btn-container, 
+    .philosophy-text-grid, 
+    .principles-grid, 
+    .footer-grid,
+    .solar-phil-grid,
+    .timeline-steps {
+        grid-template-columns: 1fr !important;
+        flex-direction: column !important;
+        gap: 40px !important;
+    }
+
+    /* 5. FIX STATS BANNER */
+    .stats-banner {
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px 0;
+    }
+
+    /* 6. CONVERT HORIZONTAL TIMELINE TO VERTICAL */
+    .hww-timeline-hz {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 20px;
+        gap: 50px;
+        position: relative;
+    }
+    .timeline-beam-hz {
+        width: 1px;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    .hww-step-hz {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .timeline-node-hz {
+        position: absolute;
+        left: -4px;
+        margin-top: 5px;
+    }
+
+    /* 7. CINEMATIC ACCORDIONS & GALLERIES */
+    .wwd-accordion, .flex-gallery {
+        flex-direction: column;
+        height: auto !important;
+    }
+    .wwd-panel, .flex-item {
+        width: 100% !important;
+        height: 350px !important;
+        flex: none !important;
+    }
+    .item-overlay {
+        opacity: 1; /* Keep text visible on mobile since there is no 'hover' */
+        transform: translateY(0);
+    }
+
+    /* 8. TYPOGRAPHY SCALING */
+    h1 {
+        font-size: 55px !important;
+    }
+    .consult-title, .portfolio-title, .wwd-title, .hww-title, .princ-title-h2 {
+        font-size: 38px !important;
+    }
+}
+

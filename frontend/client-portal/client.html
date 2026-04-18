@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ORIZONS | Lead Entry System</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;400;500&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="client.css"> </head>
+    <body>
+
+        <div class="custom-cursor"></div>
+        <div class="cursor-follower"></div>
+
+        <nav class="admin-nav">
+            <div class="nav-left">ADMINISTRATION PORTAL</div>
+            <a href="../client-portal/client.html"
+                class="nav-right exit-link">EXIT TO VAULT <span>↗</span></a>
+        </nav>
+
+        <main class="lead-system-wrapper">
+            <div class="form-header">
+                <h1>Lead Entry System</h1>
+                <p>Manual synchronization with the central Lead Database.</p>
+                <div class="header-line"></div>
+            </div>
+
+            <form id="lead-entry-form" class="lead-form-grid">
+
+                <div class="input-group">
+                    <label>FULL NAME</label>
+                    <input type="text" id="lead-name" placeholder="Client Name"
+                        required>
+                </div>
+
+                <div class="input-group phone-group">
+                    <label>PHONE NUMBER</label>
+                    <div class="phone-input-wrapper">
+                        <span class="country-code">+91</span>
+                        <input type="tel" id="lead-phone"
+                            placeholder="98765 43210" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>EMAIL ADDRESS</label>
+                    <input type="email" id="lead-email"
+                        placeholder="client@address.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label>ACQUISITION SOURCE</label>
+                    <select id="lead-source" required>
+                        <option value disabled selected>Select
+                            Source...</option>
+                        <option value="Personal Network">Personal
+                            Network</option>
+                        <option value="Website Inquiry">Website Inquiry</option>
+                        <option value="Referral">Client Referral</option>
+                        <option value="Social Media">Social Media</option>
+                    </select>
+                </div>
+
+                <div class="input-group full-width">
+                    <label>ESTIMATED BUDGET</label>
+                    <input type="text" id="lead-budget"
+                        placeholder="e.g. 75L - 1.5Cr" required>
+                </div>
+
+                <div class="input-group full-width">
+                    <label>PROJECT NOTES & SITE CONDITIONS</label>
+                    <textarea id="lead-notes" rows="4"
+                        placeholder="Specific lifestyle needs, site dimensions, or architectural preferences..."></textarea>
+                </div>
+
+                <div class="form-actions full-width">
+                    <button type="submit" class="btn-sync" id="sync-btn">
+                        <span>SYNC WITH DATABASE</span>
+                    </button>
+                    <p id="sync-status"></p>
+                </div>
+
+            </form>
+        </main>
+
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+        <script src="../global/app.js"></script>
+
+        <script src="client.js"></script>
+    </body>
+</html>

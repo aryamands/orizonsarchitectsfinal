@@ -1,0 +1,92 @@
+/* --- ADMIN SECURITY VAULT STYLES --- */
+
+.login-vault {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--navy-deep);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background ghosting to match About page */
+.auth-visual-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop') center/cover;
+    opacity: 0.05;
+    filter: grayscale(1);
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 450px;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(143, 163, 187, 0.1);
+    padding: 60px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.auth-card h2 {
+    font-size: 18px;
+    letter-spacing: 0.4em;
+    font-weight: 400;
+    margin-bottom: 50px;
+    color: var(--arch-white);
+}
+
+.auth-card .input-group {
+    margin-bottom: 35px;
+    text-align: left;
+}
+
+.auth-card label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--gold-brass);
+    display: block;
+    margin-bottom: 15px;
+}
+
+.auth-card input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(143, 163, 187, 0.2);
+    padding: 12px 0;
+    color: white;
+    font-size: 16px;
+    transition: var(--transition-smooth);
+    outline: none;
+}
+
+.auth-card input:focus {
+    border-bottom-color: var(--gold-brass);
+}
+
+#pass-hint {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--blueprint);
+    opacity: 0.5;
+    margin-top: 10px;
+    display: block;
+}
+
+#login-error {
+    color: #ff6b6b;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    margin-top: 25px;
+    text-transform: uppercase;
+}
+
+.btn-primary {
+    width: 100%;
+    margin-top: 20px;
+}

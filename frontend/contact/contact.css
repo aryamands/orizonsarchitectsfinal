@@ -1,0 +1,182 @@
+/* --- ORIZONS V3: PREMIUM CONTACT STUDIO STYLES --- */
+
+.contact-hero-section {
+    min-height: 100vh;
+    padding: 160px 5% 100px; 
+    background-color: var(--navy-deep);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+/* ARCHITECTURAL BACKGROUND GHOST */
+.contact-visual-bg {
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+    opacity: 0.1;
+    filter: grayscale(1) brightness(0.5);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.contact-split-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 100px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 5;
+}
+
+/* LEFT PANEL: STUDIO INFORMATION */
+.headline {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 300;
+    line-height: 1.1;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    color: var(--arch-white);
+}
+
+.accent-text { 
+    color: var(--gold-brass); 
+}
+
+.contact-method-grid {
+    display: grid;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.contact-details-panel label {
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    color: var(--gold-brass);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.contact-details-panel a, 
+.contact-details-panel p {
+    font-size: 20px;
+    color: var(--arch-white);
+    text-decoration: none;
+    font-weight: 300;
+    transition: var(--transition-smooth);
+}
+
+/* MAP STYLING */
+.map-wrapper {
+    position: relative;
+    margin-top: 50px;
+    border: 1px solid rgba(143, 163, 187, 0.1);
+    height: 300px;
+    overflow: hidden;
+}
+
+.map-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--navy-deep);
+    mix-blend-mode: saturation;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* RIGHT PANEL: THE PREMIUM INTAKE FORM */
+.form-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 70px;
+    position: relative;
+}
+
+.input-row { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px; 
+}
+
+.input-group { 
+    margin-bottom: 40px; 
+}
+
+.input-group label {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--blueprint);
+    display: block;
+    margin-bottom: 15px;
+}
+
+.input-group input, 
+.input-group select, 
+.input-group textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(143, 163, 187, 0.3);
+    padding: 15px 0;
+    color: white;
+    font-size: 16px;
+    font-family: 'DM Sans', sans-serif;
+    transition: var(--transition-smooth);
+    outline: none;
+    border-radius: 0;
+}
+
+/* --- THE CRITICAL FIX: SELECT DROPDOWN VISIBILITY --- */
+select option {
+    background-color: #0B1F3A !important; /* Force Navy Background for the list */
+    color: #F8F9FC !important;           /* Force White Text for the list */
+    padding: 20px;
+}
+
+/* Chrome & Firefox fix for hovering options */
+select option:hover, 
+select option:focus, 
+select option:active {
+    background-color: var(--gold-brass) !important;
+    color: #0B1F3A !important;
+}
+
+.input-group input:focus, 
+.input-group select:focus {
+    border-bottom-color: var(--gold-brass);
+}
+
+/* Placeholder styling */
+::placeholder {
+    color: rgba(143, 163, 187, 0.4);
+    font-weight: 300;
+}
+
+/* BUTTON REFINEMENT */
+.btn-primary {
+    width: 100%;
+    cursor: pointer;
+}
+
+/* RESPONSIVE REFINEMENTS */
+@media (max-width: 1100px) {
+    .contact-split-grid {
+        grid-template-columns: 1fr;
+        gap: 80px;
+    }
+    .form-card { padding: 40px; }
+}
+
+@media (max-width: 600px) {
+    .input-row { grid-template-columns: 1fr; gap: 0; }
+    .headline { font-size: 32px; }
+}

@@ -1,0 +1,150 @@
+/* =========================================
+   SERVICES PAGE - EDITORIAL STYLES
+   ========================================= */
+
+/* Hero Section */
+.services-hero {
+    padding: 200px 5% 100px;
+    text-align: center;
+    position: relative;
+    border-bottom: 1px solid rgba(143, 163, 187, 0.1);
+}
+
+.services-hero h1 {
+    font-size: clamp(40px, 8vw, 80px);
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--brand-white);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.services-hero p {
+    color: var(--blueprint);
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Services Alternating Grid */
+.services-list {
+    padding: 100px 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 150px;
+}
+
+.service-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.service-row:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Typography & Content */
+.service-content {
+    flex: 1;
+    position: relative;
+}
+
+.service-number {
+    font-size: clamp(80px, 15vw, 200px);
+    font-weight: 700;
+    line-height: 1;
+    /* The "Million Dollar" transparent outline effect */
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(143, 163, 187, 0.15);
+    position: absolute;
+    top: -80px;
+    left: -20px;
+    z-index: -1;
+    user-select: none;
+}
+
+.service-title {
+    font-size: 32px;
+    color: var(--brand-white);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+.service-desc {
+    color: var(--blueprint);
+    line-height: 1.8;
+    font-size: 15px;
+    margin-bottom: 40px;
+    max-width: 450px;
+}
+
+.service-features {
+    list-style: none;
+    margin-bottom: 40px;
+}
+
+.service-features li {
+    color: var(--brand-white);
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.service-features li::before {
+    content: '';
+    width: 30px;
+    height: 1px;
+    background-color: var(--blueprint);
+    display: inline-block;
+}
+
+/* Cinematic Image Masks */
+.service-image-wrapper {
+    flex: 1.2;
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+}
+
+.service-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.1); /* Pre-scaled for parallax effect */
+    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: brightness(0.8) contrast(1.1);
+}
+
+.service-row:hover .service-image {
+    transform: scale(1.0); /* Zooms out slightly on hover */
+    filter: brightness(1) contrast(1.1);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .service-row, .service-row:nth-child(even) {
+        flex-direction: column;
+        gap: 50px;
+    }
+    .service-image-wrapper {
+        width: 100%;
+        height: 400px;
+    }
+    .service-number {
+        top: -50px;
+        font-size: 100px;
+    }
+}

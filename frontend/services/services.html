@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Our Services | Architecture, Interior Design, Construction &
+            Solar | Orizons</title>
+        <meta name="description"
+            content="Orizons offers architecture design, interior design, construction management, and solar panel installation for residential and commercial projects. Based in Jaipur, working across India.">
+
+        <link rel="canonical"
+            href="https://orizons.in/services/services.html" />
+        <meta property="og:title"
+            content="Our Services | Architecture, Interior Design, Construction & Solar | Orizons" />
+        <meta property="og:description"
+            content="Orizons offers architecture design, interior design, construction management, and solar panel installation for residential and commercial projects. Based in Jaipur, working across India." />
+        <meta property="og:image"
+            content="https://orizons.in/global/assets/og-hero.jpg" />
+        <meta property="og:url"
+            content="https://orizons.in/services/services.html" />
+        <meta property="og:type" content="website" />
+
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Orizons Services",
+          "itemListElement": [
+            {
+              "@type": "Service",
+              "position": 1,
+              "name": "Architecture Design",
+              "description": "Residential and commercial architecture design across India. Site analysis, concept design, working drawings, and regulatory approvals.",
+              "provider": {"@type": "Organization", "name": "Orizons"}
+            },
+            {
+              "@type": "Service",
+              "position": 2,
+              "name": "Interior Design",
+              "description": "Complete interior design for homes and commercial spaces. Spatial planning, material selection, furniture, and lighting.",
+              "provider": {"@type": "Organization", "name": "Orizons"}
+            },
+            {
+              "@type": "Service",
+              "position": 3,
+              "name": "Construction Management",
+              "description": "End-to-end construction management in Jaipur. Single point of contact, weekly updates, cost control, foundation to handover.",
+              "provider": {"@type": "Organization", "name": "Orizons"}
+            },
+            {
+              "@type": "Service",
+              "position": 4,
+              "name": "Solar Panel Installation",
+              "description": "Architecturally integrated rooftop solar panel installation in Jaipur and Rajasthan. Government subsidies and net metering handled.",
+              "provider": {"@type": "Organization", "name": "Orizons"}
+            }
+          ]
+        }
+        </script>
+
+        <link rel="stylesheet" href="../global/style.css">
+        <link rel="stylesheet" href="services.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap"
+            rel="stylesheet">
+
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+        <style>
+            /* ==========================================
+               GLOBAL NAVBAR & FOOTER
+               ========================================== */
+            #main-nav { background-color: transparent !important; transition: background-color 0.4s ease-in-out !important; display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; width: 100%; position: fixed; top: 0; left: 0; z-index: 1000; box-sizing: border-box; }
+            #main-nav.scrolled { background-color: #0B1F3A !important; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+            #main-nav nav a { font-weight: 300; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.6); transition: color 0.4s ease; text-decoration: none; margin-left: 30px; }
+            #main-nav nav a:hover, #main-nav nav a.active { color: white; }
+            
+            .main-footer { background-color: #3D6A9E !important; padding: 60px 5% 30px !important; }
+            .main-footer .footer-title { color: #FFFFFF !important; font-weight: 700 !important; }
+            .main-footer p, .main-footer a, .main-footer li, .main-footer .brand-bio, .main-footer .contact-link { color: #FFFFFF !important; font-weight: 500 !important; text-decoration: none; }
+            .main-footer .footer-bottom-bar { margin-top: 40px !important; padding-top: 20px !important; border-top: 1px solid rgba(255, 255, 255, 0.3) !important; }
+
+            /* Nav Social Icons */
+            .nav-social-icon { display: inline-flex; align-items: center; margin-left: 20px; color: #FFFFFF !important; text-decoration: none; }
+            .nav-social-icon svg { width: 20px; height: 20px; transition: transform 0.3s ease, stroke 0.3s ease; }
+            .nav-social-icon:hover svg { transform: scale(1.15) translateY(-2px); stroke: #8FA3BB !important; }
+
+            /* Footer Social Icons - Brand Color Hover Logic */
+            .social-links-container { display: flex; gap: 15px; margin-top: 25px; }
+            .social-circle { display: inline-flex; align-items: center; justify-content: center; }
+            .social-circle svg { width: 22px; height: 22px; fill: #FFFFFF; transition: fill 0.3s ease, transform 0.3s ease; }
+            .social-circle:hover svg { transform: scale(1.15) translateY(-2px); }
+            .social-circle.ig:hover svg { fill: #E1306C !important; } 
+            .social-circle.yt:hover svg { fill: #FF0000 !important; } 
+            .social-circle.li:hover svg { fill: #0A66C2 !important; } 
+            .social-circle.fb:hover svg { fill: #3B5998 !important; } 
+
+            /* ==========================================
+               MOBILE RESPONSIVE STYLES (MAX-WIDTH: 900px)
+               ========================================== */
+            @media (max-width: 900px) {
+                /* Hide Custom Cursor */
+                .custom-cursor, .cursor-follower { display: none !important; }
+
+                /* Adjust Global Paddings for Mobile */
+                .services-hero { padding: 160px 5% 60px !important; text-align: center; }
+                .services-list { padding: 40px 5% !important; }
+                
+                /* Hamburger Menu Toggle - Pinned to Top Right */
+                .mobile-menu-toggle {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 6px;
+                    z-index: 1000;
+                    cursor: pointer;
+                    position: absolute; 
+                    top: 25px;          
+                    right: 5%;          
+                }
+                .mobile-menu-toggle span {
+                    display: block; width: 30px; height: 2px; background: white;
+                    transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+                }
+
+                /* Full Screen Mobile Nav Overlay */
+                #main-nav nav {
+                    position: fixed;
+                    top: 0; left: 0; width: 100%; height: 100vh;
+                    background-color: var(--navy-deep, #0B1F3A);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 35px;
+                    transform: translateY(-100%);
+                    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+                    z-index: 999;
+                }
+                
+                /* Mobile Menu Open States */
+                #main-nav.menu-open nav { transform: translateY(0); }
+                #main-nav.menu-open .mobile-menu-toggle span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+                #main-nav.menu-open .mobile-menu-toggle span:nth-child(2) { opacity: 0; }
+                #main-nav.menu-open .mobile-menu-toggle span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+                #main-nav nav a { font-size: 22px; border: none !important; text-align: center; display: block; margin: 0; padding: 10px 0; }
+
+                /* Services Stacking */
+                .service-row {
+                    display: flex !important;
+                    flex-direction: column-reverse !important; /* Text below image on mobile */
+                    gap: 30px !important;
+                    margin-bottom: 80px !important;
+                }
+                .service-content { width: 100% !important; padding: 0 !important; }
+                .service-image-wrapper { width: 100% !important; margin: 0 !important; }
+                .service-image { aspect-ratio: 4/3; height: auto; object-fit: cover; }
+
+                /* Footer */
+                .footer-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+                .social-links-container { justify-content: center; }
+            }
+
+            /* Hide hamburger on Desktop */
+            @media (min-width: 901px) {
+                .mobile-menu-toggle { display: none; }
+                #main-nav nav { display: flex; align-items: center; gap: 30px; }
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="custom-cursor"></div>
+        <div class="cursor-follower"></div>
+
+        <header id="main-nav">
+            <a href="../index.html" class="logo-link">
+                <img src="../global/assets/orizons_logo_white.png"
+                    alt="Orizons Logo" class="nav-logo"
+                    style="height: 35px; filter: brightness(0) invert(1) !important;">
+            </a>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../about/about.html">About</a>
+                <a href="services.html"
+                    style="color: var(--brand-white); border-bottom: 1px solid white;">Services</a>
+                <a href="../solar/solar.html">Solar</a>
+                <a href="../contact/contact.html">Contact</a>
+                <a href="https://wa.me/919928741229" target="_blank"
+                    rel="noopener noreferrer" class="nav-consult-btn"
+                    style="display: inline-flex; align-items: center; padding: 10px 20px; border: 1px solid rgba(255,255,255,0.3); border-radius: 50px; text-decoration: none; color: white; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.3s ease;">
+                    <svg viewBox="0 0 24 24" class="nav-wa-icon"
+                        style="width: 14px; height: 14px; margin-right: 8px; fill: currentColor;">
+                        <path
+                            d="M12.031 0C5.393 0 0 5.39 0 12.03c0 2.128.553 4.202 1.605 6.035L.17 23.32l5.426-1.42c1.782.955 3.79 1.458 5.835 1.458h.005c6.634 0 12.03-5.393 12.03-12.035C23.466 5.39 18.07 0 12.031 0zm0 21.41h-.003c-1.8 0-3.56-.484-5.11-1.398l-.367-.217-3.8.995.996-3.712-.238-.378A10.088 10.088 0 011.94 12.03C1.94 6.474 6.467 1.95 12.034 1.95c5.556 0 10.086 4.526 10.086 10.08s-4.53 10.08-10.089 10.08zm5.534-7.55c-.303-.153-1.794-.886-2.073-.987-.279-.102-.483-.153-.687.153-.203.305-.783.987-.96 1.19-.177.204-.354.23-.657.076-2.12-.998-3.415-1.92-4.706-3.83-.153-.227-.016-.35.136-.503.138-.138.303-.355.455-.533.153-.178.203-.305.304-.508.102-.203.05-.38-.025-.533-.076-.153-.687-1.657-.942-2.268-.248-.596-.5-.515-.687-.524-.177-.008-.38-.01-.584-.01-.203 0-.533.077-.812.381-.28.305-1.066 1.042-1.066 2.54 0 1.5 1.092 2.947 1.244 3.15.152.203 2.148 3.268 5.203 4.582 2.054.882 2.76.71 3.268.583.535-.133 1.794-.733 2.048-1.442.254-.71.254-1.318.178-1.443-.076-.127-.28-.203-.584-.356z" />
+                    </svg>
+                    Consultation
+                </a>
+            </nav>
+
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </header>
+
+        <section class="services-hero" style="padding: 180px 5% 80px;">
+            <h1 class="anim-hero"
+                style="font-size: clamp(40px, 6vw, 70px); font-weight: 300; letter-spacing: -0.02em; margin-bottom: 20px; color: white;">What
+                We Do.</h1>
+            <p class="anim-hero"
+                style="font-size: 18px; color: rgba(255,255,255,0.6); max-width: 600px; margin: 0 auto; line-height: 1.8;">Four
+                services. One studio. Every project handled with the same rigour
+                — from the first sketch to the final finish.</p>
+        </section>
+
+        <section class="services-list">
+
+            <div class="service-row anim-scroll">
+                <div class="service-content">
+                    <div class="service-number">01</div>
+                    <div
+                        style="font-size: 10px; letter-spacing: 0.2em; color: var(--blueprint); margin-bottom: 10px; text-transform: uppercase;">Residential
+                        & Commercial Architecture</div>
+                    <h2 class="service-title">Architecture<br>Design</h2>
+                    <p class="service-desc">We handle the full architectural
+                        process — from site feasibility and concept development
+                        through to working drawings, structural coordination,
+                        and regulatory approvals.<br><br>Whether it is a home,
+                        an office, a restaurant, or a retail space, we bring the
+                        same rigour to every project. Our architecture work
+                        extends across India.</p>
+                    <ul class="service-features">
+                        <li>Site & feasibility analysis</li>
+                        <li>Concept & schematic design</li>
+                        <li>Working drawings & documentation</li>
+                        <li>Local authority approvals & liaison</li>
+                    </ul>
+                    <a href="../contact/contact.html" class="btn-primary"
+                        style="display: inline-block; padding: 15px 30px; border: 1px solid rgba(255,255,255,0.3); color: white; text-decoration: none; border-radius: 50px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.4s ease;"
+                        onmouseover="this.style.backgroundColor='white'; this.style.color='var(--navy-deep)';"
+                        onmouseout="this.style.backgroundColor='transparent'; this.style.color='white';">Start
+                        a Project</a>
+                </div>
+                <div class="service-image-wrapper">
+                    <img
+                        src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop"
+                        alt="architecture design services residential commercial India by Orizons"
+                        class="service-image" style="border-radius: 4px;">
+                </div>
+            </div>
+
+            <div class="service-row anim-scroll even">
+                <div class="service-content">
+                    <div class="service-number">02</div>
+                    <div
+                        style="font-size: 10px; letter-spacing: 0.2em; color: var(--blueprint); margin-bottom: 10px; text-transform: uppercase;">Residential
+                        & Commercial Interiors</div>
+                    <h2 class="service-title">Interior<br>Design</h2>
+                    <p class="service-desc">Complete interiors from spatial
+                        planning through to material finishes, furniture,
+                        fixtures, and lighting. We design spaces that work for
+                        how you actually live and work — not just how they look
+                        in photographs.<br><br>Available as a standalone service
+                        or as part of a full architecture and construction
+                        package. Interior design work across India.</p>
+                    <ul class="service-features">
+                        <li>Spatial planning & layout</li>
+                        <li>Material & finish selection</li>
+                        <li>Furniture, fixtures & equipment sourcing</li>
+                        <li>Lighting concept & design</li>
+                    </ul>
+                    <a href="../contact/contact.html" class="btn-primary"
+                        style="display: inline-block; padding: 15px 30px; border: 1px solid rgba(255,255,255,0.3); color: white; text-decoration: none; border-radius: 50px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.4s ease;"
+                        onmouseover="this.style.backgroundColor='white'; this.style.color='var(--navy-deep)';"
+                        onmouseout="this.style.backgroundColor='transparent'; this.style.color='white';">Start
+                        a Project</a>
+                </div>
+                <div class="service-image-wrapper">
+                    <img
+                        src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1974&auto=format&fit=crop"
+                        alt="interior design services residential commercial by Orizons"
+                        class="service-image" style="border-radius: 4px;">
+                </div>
+            </div>
+
+            <div class="service-row anim-scroll">
+                <div class="service-content">
+                    <div class="service-number">03</div>
+                    <div
+                        style="font-size: 10px; letter-spacing: 0.2em; color: var(--blueprint); margin-bottom: 10px; text-transform: uppercase;">Full
+                        Project Execution</div>
+                    <h2 class="service-title">Construction<br>Management</h2>
+                    <p class="service-desc">We manage the complete construction
+                        process — from foundation to handover. One point of
+                        contact, weekly site visits, written progress updates,
+                        and cost control throughout.<br><br>No chasing
+                        contractors. No surprises at the end. A building
+                        delivered to the standard it was designed to.</p>
+                    <ul class="service-features">
+                        <li>Full project management</li>
+                        <li>Contractor sourcing & coordination</li>
+                        <li>Weekly progress reporting</li>
+                        <li>Snagging, documentation & handover</li>
+                    </ul>
+                    <a href="../contact/contact.html" class="btn-primary"
+                        style="display: inline-block; padding: 15px 30px; border: 1px solid rgba(255,255,255,0.3); color: white; text-decoration: none; border-radius: 50px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.4s ease;"
+                        onmouseover="this.style.backgroundColor='white'; this.style.color='var(--navy-deep)';"
+                        onmouseout="this.style.backgroundColor='transparent'; this.style.color='white';">Start
+                        a Project</a>
+                </div>
+                <div class="service-image-wrapper">
+                    <img
+                        src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=1920&auto=format&fit=crop"
+                        alt="construction management services by Orizons Jaipur"
+                        class="service-image" style="border-radius: 4px;">
+                </div>
+            </div>
+
+            <div class="service-row anim-scroll even">
+                <div class="service-content">
+                    <div class="service-number">04</div>
+                    <div
+                        style="font-size: 10px; letter-spacing: 0.2em; color: var(--blueprint); margin-bottom: 10px; text-transform: uppercase;">Architecturally
+                        Integrated Solar</div>
+                    <h2 class="service-title">Solar Panel<br>Installation</h2>
+                    <p class="service-desc">Most solar installations are handled
+                        by electricians who treat your roof as empty space.
+                        Orizons designs solar as part of the building —
+                        structurally sound, visually considered, and optimised
+                        for output.<br><br>Available for new construction and
+                        existing homes and commercial buildings in Jaipur and
+                        Rajasthan. We handle the full process including
+                        government subsidy applications and net-metering
+                        setup.</p>
+                    <ul class="service-features">
+                        <li>Roof & structural assessment</li>
+                        <li>System sizing & layout design</li>
+                        <li>Full installation & net-metering</li>
+                        <li>Government subsidy paperwork</li>
+                    </ul>
+                    <a href="../solar/solar.html" class="btn-primary"
+                        style="display: inline-block; padding: 15px 30px; border: 1px solid rgba(255,255,255,0.3); color: white; text-decoration: none; border-radius: 50px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.4s ease;"
+                        onmouseover="this.style.backgroundColor='white'; this.style.color='var(--navy-deep)';"
+                        onmouseout="this.style.backgroundColor='transparent'; this.style.color='white';">Get
+                        a Free Solar Estimate</a>
+                </div>
+                <div class="service-image-wrapper">
+                    <img
+                        src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2072&auto=format&fit=crop"
+                        alt="solar panel installation Jaipur Rajasthan by Orizons"
+                        class="service-image" style="border-radius: 4px;">
+                </div>
+            </div>
+
+        </section>
+
+        <div
+            style="text-align: center; padding: 20px 5% 80px; font-family: 'DM Sans', sans-serif;">
+            <p style="color: rgba(255,255,255,0.6); font-size: 15px;">For
+                detailed information on our solar services, visit our <a
+                    href="../solar/solar.html"
+                    style="color: var(--brand-white); text-decoration: underline; text-underline-offset: 4px;">dedicated
+                    solar page</a>.</p>
+        </div>
+
+        <footer class="main-footer">
+            <div class="footer-wrapper">
+                <div class="footer-grid">
+                    <div class="footer-col-brand">
+                        <div class="footer-logo-container">
+                            <img src="../global/assets/orizons_logo_white.png"
+                                alt="Orizons Logo" class="nav-logo"
+                                style="height: 40px; margin-bottom: 20px; filter: brightness(0) invert(1) !important;">
+                        </div>
+                        <p class="brand-bio">
+                            Orizons is a leading architecture firm in Jaipur
+                            crafting structural narratives that transcend
+                            traditional boundaries. Every line we draw is a
+                            commitment to precision and architectural integrity.
+                        </p>
+                        <div class="social-links-container">
+                            <a href="https://www.instagram.com/shobhitbuilds"
+                                target="_blank" rel="noopener noreferrer"
+                                class="social-circle ig" title="Instagram"><svg
+                                    viewBox="0 0 24 24"><path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg></a>
+                            <a href="https://www.youtube.com/@ShobhitBuilds"
+                                target="_blank" rel="noopener noreferrer"
+                                class="social-circle yt" title="YouTube"><svg
+                                    viewBox="0 0 24 24"><path
+                                        d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.861-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z" /></svg></a>
+                            <a href="https://www.linkedin.com/in/shobhitmodi23/"
+                                target="_blank" rel="noopener noreferrer"
+                                class="social-circle li" title="LinkedIn"><svg
+                                    viewBox="0 0 24 24"><path
+                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg></a>
+                            <a
+                                href="https://www.facebook.com/share/1AvFmc5JXg/?mibextid=wwXIfr"
+                                target="_blank" rel="noopener noreferrer"
+                                class="social-circle fb" title="Facebook"><svg
+                                    viewBox="0 0 24 24"><path
+                                        d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" /></svg></a>
+                        </div>
+                    </div>
+                    <div class="footer-col-nav">
+                        <h4 class="footer-title">QUICK LINKS</h4>
+                        <ul class="footer-list">
+                            <li><a href='/'>HOME</a></li>
+                            <li><a href='/about/about.html'>ABOUT US</a></li>
+                            <li><a href='/services/services.html'>SERVICES</a></li>
+                            <li><a href='/contact/contact.html'>CONTACT</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col-nav">
+                        <h4 class="footer-title">STUDIO</h4>
+                        <ul class="footer-list">
+                            <li><a href="#">FAQS</a></li>
+                            <li><a href='/privacy.html'>PRIVACY POLICY</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col-nav">
+                        <h4 class="footer-title">OFFICE</h4>
+                        <div class="contact-info-block">
+                            <p>
+                                <a
+                                    href="https://maps.app.goo.gl/pzgHWy4sYow6CoHb7"
+                                    target="_blank" rel="noopener noreferrer"
+                                    style="color: inherit; text-decoration: none; display: inline-block; line-height: 1.6; transition: color 0.3s ease;"
+                                    onmouseover="this.style.color='#8FA3BB'"
+                                    onmouseout="this.style.color='inherit'">
+                                    ORIZONS OFFICE, 2ND FLOOR,<br>ANAND BHAWAN,
+                                    SANSAR CHANDRA RD,<br>JAIPUR, RAJASTHAN
+                                    302001
+                                </a>
+                            </p>
+                            <p class="contact-link"><a
+                                    href="mailto:connect@orizons.in"
+                                    style="color: inherit; text-decoration: none; transition: color 0.3s ease;"
+                                    onmouseover="this.style.color='#8FA3BB'"
+                                    onmouseout="this.style.color='inherit'">connect@orizons.in</a></p>
+                            <p class="contact-link"><a
+                                    href="https://wa.me/919928741229"
+                                    target="_blank" rel="noopener noreferrer"
+                                    style="color: inherit; text-decoration: none; transition: color 0.3s ease;"
+                                    onmouseover="this.style.color='#8FA3BB'"
+                                    onmouseout="this.style.color='inherit'">+91
+                                    99287 41229</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom-bar">
+                    <p class="copyright-text">© 2026 ORIZONS. ALL RIGHTS
+                        RESERVED.</p>
+                    <p class="design-credit">DESIGN BY <span
+                            class="accent-text">ORIZONS STUDIO</span></p>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // SECURE CURSOR LOGIC (Desktop Only)
+            const cursor = document.querySelector('.custom-cursor');
+            const follower = document.querySelector('.cursor-follower');
+            if (cursor && follower && window.innerWidth > 900) {
+                document.addEventListener('mousemove', (e) => {
+                    requestAnimationFrame(() => {
+                        cursor.style.transform = `translate(${e.clientX - 4}px, ${e.clientY - 4}px)`;
+                        follower.style.transform = `translate(${e.clientX - 20}px, ${e.clientY - 20}px)`;
+                    });
+                });
+            }
+
+            // NAVBAR SCROLL LOGIC
+            window.addEventListener('scroll', () => {
+                const nav = document.getElementById('main-nav');
+                if (window.scrollY > 50) nav.classList.add('scrolled');
+                else nav.classList.remove('scrolled');
+            });
+
+            // MOBILE MENU TOGGLE LOGIC
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const mainNav = document.getElementById('main-nav');
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', () => {
+                    mainNav.classList.toggle('menu-open');
+                    document.body.style.overflow = mainNav.classList.contains('menu-open') ? 'hidden' : '';
+                });
+            }
+
+            // ==========================================
+            // ANIME.JS MILLION-DOLLAR ANIMATIONS
+            // ==========================================
+            window.addEventListener('load', () => {
+                if (typeof anime !== 'undefined') {
+                    
+                    // 1. Initial Page Load Reveal
+                    anime.timeline({ easing: 'easeOutExpo' })
+                    .add({
+                        targets: '.logo-link',
+                        opacity: [0, 1],
+                        translateX: [-20, 0],
+                        duration: 1200
+                    })
+                    .add({
+                        targets: '.anim-hero',
+                        opacity: [0, 1],
+                        translateY: [30, 0],
+                        duration: 1200,
+                        delay: anime.stagger(150)
+                    }, '-=800');
+
+                    // 2. Scroll Triggers for Services Rows
+                    const scrollElements = document.querySelectorAll('.anim-scroll');
+                    
+                    // Hide initially
+                    scrollElements.forEach(el => {
+                        el.querySelector('.service-content').style.opacity = 0;
+                        el.querySelector('.service-image-wrapper').style.opacity = 0;
+                    });
+
+                    const scrollObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                const content = entry.target.querySelector('.service-content');
+                                const image = entry.target.querySelector('.service-image-wrapper');
+                                const imgScale = entry.target.querySelector('.service-image');
+
+                                let tl = anime.timeline({ easing: 'easeOutQuart' });
+
+                                // Slide text up
+                                tl.add({
+                                    targets: content,
+                                    opacity: [0, 1],
+                                    translateY: [50, 0],
+                                    duration: 1200
+                                })
+                                // Reveal image with an elegant mask effect
+                                .add({
+                                    targets: image,
+                                    opacity: [0, 1],
+                                    translateX: [entry.target.classList.contains('even') ? -50 : 50, 0],
+                                    duration: 1200
+                                }, '-=1000')
+                                // Subtle parallax scale down on the image itself
+                                .add({
+                                    targets: imgScale,
+                                    scale: [1.3, 1.1],
+                                    duration: 2500,
+                                    easing: 'easeOutSine'
+                                }, '-=1200');
+
+                                scrollObserver.unobserve(entry.target);
+                            }
+                        });
+                    }, { threshold: 0.15 });
+
+                    scrollElements.forEach(el => scrollObserver.observe(el));
+                }
+            });
+        </script>
+    </body>
+</html>

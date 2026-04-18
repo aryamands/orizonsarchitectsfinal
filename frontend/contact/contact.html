@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Contact Orizons | Architecture & Construction in Jaipur</title>
+        <meta name="description"
+            content="Get in touch with Orizons. Book a consultation for architecture, interior design, construction management, or solar panel installation in Jaipur and across India.">
+        <meta name="referrer" content="strict-origin-when-cross-origin">
+
+        <link rel="canonical" href="https://orizons.in/contact/contact.html" />
+        <meta property="og:title"
+            content="Contact Orizons | Architecture & Construction in Jaipur" />
+        <meta property="og:description"
+            content="Get in touch with Orizons. Book a consultation for architecture, interior design, construction management, or solar panel installation in Jaipur and across India." />
+        <meta property="og:image"
+            content="https://orizons.in/global/assets/orizons_logo_white.png" />
+        <meta property="og:url"
+            content="https://orizons.in/contact/contact.html" />
+        <meta property="og:type" content="website" />
+
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          "name": "Orizons",
+          "telephone": "+919928741229",
+          "email": "connect@orizons.in",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Orizons Office, 2nd Floor, Anand Bhawan, Sansar Chandra Rd",
+            "addressLocality": "Jaipur",
+            "addressRegion": "Rajasthan",
+            "postalCode": "302001",
+            "addressCountry": "IN"
+          }
+        }
+        </script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;400;500;700&display=swap"
+            rel="stylesheet">
+
+        <link rel="stylesheet" href="../global/style.css">
+
+
+        <style>
+            html { scroll-behavior: smooth; }
+            body { background-color: var(--navy-deep); margin: 0; font-family: 'DM Sans', sans-serif; color: white; overflow-x: hidden; }
+            
+            /* ==========================================
+               NAVBAR STYLES
+               ========================================== */
+            #main-nav { background-color: transparent !important; transition: background-color 0.4s ease-in-out !important; display: flex; justify-content: space-between; align-items: center; padding: 25px 5%; width: 100%; position: fixed; top: 0; left: 0; z-index: 1000; box-sizing: border-box; }
+            #main-nav.scrolled { background-color: #0B1F3A !important; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 15px 5%; }
+            #main-nav nav a { font-weight: 300; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.6); transition: color 0.4s ease; text-decoration: none; margin-left: 30px; }
+            #main-nav nav a:hover, #main-nav nav a.active { color: white; }
+
+            .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
+
+            /* ==========================================
+               CLEAN STATIC HEADER
+               ========================================== */
+            .simple-page-header {
+                padding: 180px 5% 60px;
+                text-align: center;
+                background-color: var(--navy-deep);
+            }
+            .simple-heading {
+                font-size: clamp(40px, 6vw, 70px);
+                font-weight: 300;
+                color: white;
+                line-height: 1.1;
+                letter-spacing: -0.02em;
+                margin: 0;
+            }
+
+            /* ==========================================
+               CONTACT SECTION
+               ========================================== */
+            .contact-section { padding: 40px 5% 140px; max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; }
+
+            .contact-info-panel h3 { font-size: 12px; color: var(--blueprint); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 15px; }
+            .contact-info-panel p { font-size: 20px; color: white; line-height: 1.6; font-weight: 300; margin-bottom: 40px; }
+            .contact-info-panel a { color: white; text-decoration: none; transition: color 0.3s ease; }
+            .contact-info-panel a:hover { color: var(--blueprint); }
+
+            /* Premium Map Container with Scroll-Lag Fix */
+            .map-container { position: relative; margin-top: 10px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); filter: grayscale(100%) invert(90%) contrast(85%); opacity: 0.85; transition: opacity 0.4s ease, filter 0.4s ease; }
+            .map-container:hover { opacity: 1; filter: grayscale(80%) invert(90%) contrast(90%); }
+            /* pointer-events: none prevents the iframe from stealing your mouse scroll! */
+            .map-container iframe { display: block; width: 100%; height: 220px; pointer-events: none; }
+            /* Transparent overlay that captures clicks and opens Google Maps */
+            .map-overlay { position: absolute; inset: 0; z-index: 2; cursor: pointer; }
+
+            /* The Form */
+            .contact-form { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 50px; border-radius: 8px; }
+            .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+            .form-group { display: flex; flex-direction: column; }
+            .form-group.full-width { grid-column: span 2; }
+            .form-group label { font-size: 12px; color: rgba(255,255,255,0.5); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+            .form-group label span.req { color: #E1306C; }
+
+            .form-group input, .form-group select, .form-group textarea { background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.2); color: white; font-family: 'DM Sans', sans-serif; font-size: 16px; padding: 10px 0; transition: border-color 0.3s ease, padding-left 0.3s ease; border-radius: 0; }
+            .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-bottom-color: var(--blueprint); padding-left: 10px; }
+            .form-group select option { background-color: var(--navy-deep); color: white; }
+            .form-group textarea { resize: vertical; min-height: 100px; }
+
+            /* Button Container */
+            .form-actions { grid-column: span 2; display: flex; gap: 20px; margin-top: 20px; flex-wrap: wrap; }
+            .btn-submit-whatsapp { background: #25D366; border: 1px solid #25D366; color: white; padding: 15px 30px; font-family: inherit; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; flex: 1; width: 100%; font-weight: 500; will-change: transform; transition: all 0.3s ease; border-radius: 4px; }
+            .btn-submit-whatsapp svg { width: 18px; height: 18px; fill: currentColor; }
+
+            /* ==========================================
+               FOOTER
+               ========================================== */
+            .main-footer { background-color: #3D6A9E !important; padding: 80px 5% 40px !important; margin-top: 0; }
+            .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 60px; max-width: 1400px; margin: 0 auto; }
+            .main-footer .footer-title { color: #FFFFFF !important; font-weight: 700 !important; font-size: 12px; letter-spacing: 0.15em; margin-bottom: 25px; }
+            .brand-bio { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.8); margin-bottom: 30px; }
+            
+            .footer-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 15px; }
+            .footer-list li a { color: #FFFFFF; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: opacity 0.3s; }
+            .footer-list li a:hover { opacity: 0.7; }
+            
+            .contact-info-block p { font-size: 13px; line-height: 1.8; margin-bottom: 15px; color: white; }
+            .contact-info-block a { color: white; text-decoration: none; transition: opacity 0.3s; }
+            .contact-info-block a:hover { opacity: 0.7; }
+
+            .social-links-container { display: flex; gap: 15px; }
+            .social-circle { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); transition: all 0.3s ease; }
+            
+            .social-circle svg { width: 18px; height: 18px; fill: #FFFFFF; transition: fill 0.3s ease, transform 0.3s ease; }
+            .social-circle:hover { background-color: transparent; }
+            .social-circle:hover svg { transform: scale(1.15) translateY(-2px); }
+            .social-circle.ig:hover svg { fill: #E1306C; }
+            .social-circle.yt:hover svg { fill: #FF0000; }
+            .social-circle.li:hover svg { fill: #0A66C2; }
+            .social-circle.fb:hover svg { fill: #1877F2; }
+
+            .footer-bottom-bar { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 60px auto 0; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.2); flex-wrap: wrap; gap: 20px; }
+            .copyright-text { margin: 0; font-size: 12px; color: rgba(255,255,255,0.6); letter-spacing: 0.05em; }
+            .design-credit { margin: 0; font-size: 11px; letter-spacing: 0.1em; color: rgba(255,255,255,0.6); text-transform: uppercase; }
+            .design-credit span { color: white; font-weight: 500; }
+
+            /* ==========================================
+               MOBILE RESPONSIVE
+               ========================================== */
+            @media (max-width: 900px) {
+                .custom-cursor, .cursor-follower { display: none !important; }
+                
+                .mobile-menu-toggle { display: flex; flex-direction: column; gap: 6px; z-index: 1001; cursor: pointer; position: absolute; top: 25px; right: 5%; }
+                .mobile-menu-toggle span { display: block; width: 30px; height: 2px; background: white; transition: 0.4s; }
+
+                #main-nav nav { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: var(--navy-deep); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 35px; transform: translateY(-100%); transition: 0.6s cubic-bezier(0.77, 0, 0.175, 1); z-index: 999; }
+                #main-nav.menu-open nav { transform: translateY(0); }
+                #main-nav.menu-open .mobile-menu-toggle span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+                #main-nav.menu-open .mobile-menu-toggle span:nth-child(2) { opacity: 0; }
+                #main-nav.menu-open .mobile-menu-toggle span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+                
+                /* Centered mobile nav links */
+                #main-nav nav a { font-size: 16px; letter-spacing: 0.2em; text-align: center; border: none !important; width: 100%; display: block; margin: 0; padding: 10px 0; }
+                
+                .simple-page-header { padding: 140px 5% 40px; }
+                
+                .contact-section { grid-template-columns: 1fr; gap: 50px; padding: 40px 5% 80px; }
+                .contact-form { padding: 40px 25px; }
+                .form-grid { grid-template-columns: 1fr; }
+                .form-group.full-width { grid-column: span 1; }
+                .form-actions { grid-column: span 1; flex-direction: column; }
+                
+                .footer-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+                .footer-logo-container { display: flex; justify-content: center; }
+                .social-links-container { justify-content: center; }
+                .footer-bottom-bar { flex-direction: column; text-align: center; }
+            }
+            @media (min-width: 901px) { .mobile-menu-toggle { display: none; } }
+        </style>
+    </head>
+    <body>
+
+        <div class="custom-cursor" style="display: none;"></div>
+        <div class="cursor-follower" style="display: none;"></div>
+
+        <header id="main-nav">
+            <a href="../index.html" class="logo-link">
+                <img src="../global/assets/orizons_logo_white.png"
+                    alt="Orizons Logo" class="nav-logo"
+                    style="filter: brightness(0) invert(1) !important; height: 35px;">
+            </a>
+
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../about/about.html">About</a>
+                <a href="../services/services.html">Services</a>
+                <a href="../solar/solar.html">Solar</a>
+                <a href="contact.html" class="active"
+                    style="color: white; border-bottom: 1px solid white;">Contact</a>
+                <a href="https://wa.me/919928741229" target="_blank"
+                    class="nav-consult-btn"
+                    style="display: inline-flex; justify-content: center; align-items: center; padding: 10px 20px; border: 1px solid rgba(255,255,255,0.3); border-radius: 50px; text-decoration: none; color: white; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.3s ease;">
+                    <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; margin-right: 8px; fill: currentColor;"><path d="M12.031 0C5.393 0 0 5.39 0 12.03c0 2.128.553 4.202 1.605 6.035L.17 23.32l5.426-1.42c1.782.955 3.79 1.458 5.835 1.458h.005c6.634 0 12.03-5.393 12.03-12.035C23.466 5.39 18.07 0 12.031 0zm0 21.41h-.003c-1.8 0-3.56-.484-5.11-1.398l-.367-.217-3.8.995.996-3.712-.238-.378A10.088 10.088 0 011.94 12.03C1.94 6.474 6.467 1.95 12.034 1.95c5.556 0 10.086 4.526 10.086 10.08s-4.53 10.08-10.089 10.08zm5.534-7.55c-.303-.153-1.794-.886-2.073-.987-.279-.102-.483-.153-.687.153-.203.305-.783.987-.96 1.19-.177.204-.354.23-.657.076-2.12-.998-3.415-1.92-4.706-3.83-.153-.227-.016-.35.136-.503.138-.138.303-.355.455-.533.153-.178.203-.305.304-.508.102-.203.05-.38-.025-.533-.076-.153-.687-1.657-.942-2.268-.248-.596-.5-.515-.687-.524-.177-.008-.38-.01-.584-.01-.203 0-.533.077-.812.381-.28.305-1.066 1.042-1.066 2.54 0 1.5 1.092 2.947 1.244 3.15.152.203 2.148 3.268 5.203 4.582 2.054.882 2.76.71 3.268.583.535-.133 1.794-.733 2.048-1.442.254-.71.254-1.318.178-1.443-.076-.127-.28-.203-.584-.356z"/></svg>
+                    Consultation
+                </a>
+            </nav>
+
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </header>
+
+        <section class="simple-page-header">
+            <div class="section-label-center"
+                style="font-size: 11px; color: var(--blueprint); letter-spacing: 0.4em; text-transform: uppercase; margin-bottom: 20px; display: flex; justify-content: center; align-items: center; gap: 20px;">
+                <span class="accent-line"
+                    style="height: 1px; width: 40px; background: rgba(255, 255, 255, 0.4);"></span>
+                GET IN TOUCH
+                <span class="accent-line"
+                    style="height: 1px; width: 40px; background: rgba(255, 255, 255, 0.4);"></span>
+            </div>
+            <h1 class="simple-heading">Let's build something.</h1>
+        </section>
+
+        <section class="contact-section">
+            <div class="contact-info-panel">
+                <div class="info-reveal-element">
+                    <h3>Studio Address</h3>
+                    <p><a href="https://maps.app.goo.gl/pzgHWy4sYow6CoHb7"
+                            target="_blank" rel="noopener noreferrer">Orizons
+                            Office, 2nd Floor,<br>Anand Bhawan, Sansar Chandra
+                            Rd,<br>Jaipur, Rajasthan 302001</a></p>
+                </div>
+
+                <div class="info-reveal-element">
+                    <h3>Direct Contact</h3>
+                    <p><a href="https://wa.me/919928741229" target="_blank"
+                            rel="noopener noreferrer">+91 99287 41229</a></p>
+                </div>
+
+                <div class="info-reveal-element">
+                    <h3>Business Hours</h3>
+                    <p>Monday — Saturday<br>9:00 AM — 6:00 PM</p>
+                </div>
+
+                <div class="map-container">
+                    <a href="https://maps.app.goo.gl/pzgHWy4sYow6CoHb7" target="_blank" rel="noopener noreferrer" class="map-overlay" aria-label="Open in Google Maps"></a>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d227680.70399530284!2d75.4966598!3d26.9190102!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db589f2b69807%3A0xd7629c72e2bf4bf8!2sOrizons%20Architects%20and%20Builders!5e0!3m2!1sen!2sin!4v1776277037669!5m2!1sen!2sin"
+                        allowfullscreen loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form id="orizons-contact-form"
+                    onsubmit="event.preventDefault();">
+                    <div class="form-grid">
+                        <div class="form-group form-reveal-element">
+                            <label for="name">Full Name <span
+                                    class="req">*</span></label>
+                            <input type="text" id="name" name="name" required
+                                placeholder="John Doe">
+                        </div>
+
+                        <div class="form-group form-reveal-element">
+                            <label for="phone">Phone Number <span
+                                    class="req">*</span></label>
+                            <input type="tel" id="phone" name="phone" required
+                                placeholder="+91 XXXXX XXXXX">
+                        </div>
+
+                        <div class="form-group form-reveal-element">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email"
+                                placeholder="john@example.com">
+                        </div>
+
+                        <div class="form-group form-reveal-element">
+                            <label for="city">City <span
+                                    class="req">*</span></label>
+                            <input type="text" id="city" name="city" required
+                                placeholder="e.g. Jaipur">
+                        </div>
+
+                        <div class="form-group full-width form-reveal-element">
+                            <label for="project-type">Project Type</label>
+                            <select id="project-type" name="project-type">
+                                <option value disabled selected>Select an
+                                    option...</option>
+                                <option value="Architecture">Architecture
+                                    Design</option>
+                                <option value="Interior Design">Interior
+                                    Design</option>
+                                <option value="Construction">Construction
+                                    Management</option>
+                                <option value="Solar Panel Installation">Solar
+                                    Panel Installation</option>
+                                <option value="Multiple Services">Multiple
+                                    Services</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full-width form-reveal-element">
+                            <label for="message">Project Details</label>
+                            <textarea id="message" name="message"
+                                placeholder="Tell us briefly about your plot size, requirements, or vision..."></textarea>
+                        </div>
+
+                        <div class="form-actions form-reveal-element">
+                            <button type="button"
+                                class="btn-submit-whatsapp magnetic-btn"
+                                onclick="sendToWhatsApp()">
+                                <svg viewBox="0 0 24 24"><path
+                                        d="M12.031 0C5.393 0 0 5.39 0 12.03c0 2.128.553 4.202 1.605 6.035L.17 23.32l5.426-1.42c1.782.955 3.79 1.458 5.835 1.458h.005c6.634 0 12.03-5.393 12.03-12.035C23.466 5.39 18.07 0 12.031 0zm0 21.41h-.003c-1.8 0-3.56-.484-5.11-1.398l-.367-.217-3.8.995.996-3.712-.238-.378A10.088 10.088 0 011.94 12.03C1.94 6.474 6.467 1.95 12.034 1.95c5.556 0 10.086 4.526 10.086 10.08s-4.53 10.08-10.089 10.08zm5.534-7.55c-.303-.153-1.794-.886-2.073-.987-.279-.102-.483-.153-.687.153-.203.305-.783.987-.96 1.19-.177.204-.354.23-.657.076-2.12-.998-3.415-1.92-4.706-3.83-.153-.227-.016-.35.136-.503.138-.138.303-.355.455-.533.153-.178.203-.305.304-.508.102-.203.05-.38-.025-.533-.076-.153-.687-1.657-.942-2.268-.248-.596-.5-.515-.687-.524-.177-.008-.38-.01-.584-.01-.203 0-.533.077-.812.381-.28.305-1.066 1.042-1.066 2.54 0 1.5 1.092 2.947 1.244 3.15.152.203 2.148 3.268 5.203 4.582 2.054.882 2.76.71 3.268.583.535-.133 1.794-.733 2.048-1.442.254-.71.254-1.318.178-1.443-.076-.127-.28-.203-.584-.356z" /></svg>
+                                Submit via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <footer class="main-footer">
+            <div class="footer-wrapper">
+                <div class="footer-grid">
+                    <div class="footer-col-brand">
+                        <div class="footer-logo-container">
+                            <img src="../global/assets/orizons_logo_white.png"
+                                alt="Orizons Logo" class="nav-logo"
+                                style="height: 40px; margin-bottom: 20px; filter: brightness(0) invert(1) !important;">
+                        </div>
+                        <p class="brand-bio">
+                            Orizons is a leading architecture firm in Jaipur
+                            crafting structural narratives that transcend
+                            traditional boundaries. Every line we draw is a
+                            commitment to precision and architectural integrity.
+                        </p>
+                        <div class="social-links-container">
+                            <a href="https://www.instagram.com/shobhitbuilds"
+                                target="_blank" rel="noopener noreferrer"
+                                class="social-circle ig" title="Instagram"><svg
+                                    viewBox="0 0 24 24"><path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg></a>
+                            <a href="https://www.youtube.com/@ShobhitBuilds"
+                                target="_blank" rel="noopener noreferrer"
+                                class="social-circle yt" title="YouTube"><svg
+                                    viewBox="0 0 24 24"><path
+                                        d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.861-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z" /></svg></a>
+                            <a href="https://www.linkedin.com/in/shobhitmodi23/"
+                                target="_blank" rel="noopener noreferrer"
+                                class="social-circle li" title="LinkedIn"><svg
+                                    viewBox="0 0 24 24"><path
+                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg></a>
+                            <a
+                                href="https://www.facebook.com/share/1AvFmc5JXg/?mibextid=wwXIfr"
+                                target="_blank" rel="noopener noreferrer"
+                                class="social-circle fb" title="Facebook"><svg
+                                    viewBox="0 0 24 24"><path
+                                        d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" /></svg></a>
+                        </div>
+                    </div>
+                    <div class="footer-col-nav">
+                        <h4 class="footer-title">QUICK LINKS</h4>
+                        <ul class="footer-list">
+                            <li><a href='/'>HOME</a></li>
+                            <li><a href='/about/about.html'>ABOUT US</a></li>
+                            <li><a href='/services/services.html'>SERVICES</a></li>
+                            <li><a href='/contact/contact.html'>CONTACT</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col-nav">
+                        <h4 class="footer-title">STUDIO</h4>
+                        <ul class="footer-list">
+                            <li><a href="#">FAQS</a></li>
+                            <li><a href='/privacy.html'>PRIVACY POLICY</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col-nav">
+                        <h4 class="footer-title">OFFICE</h4>
+                        <div class="contact-info-block">
+                            <p>
+                                <a
+                                    href="https://maps.app.goo.gl/pzgHWy4sYow6CoHb7"
+                                    target="_blank" rel="noopener noreferrer"
+                                    style="color: inherit; text-decoration: none; display: inline-block; line-height: 1.6; transition: color 0.3s ease;"
+                                    onmouseover="this.style.color='#8FA3BB'"
+                                    onmouseout="this.style.color='inherit'">
+                                    ORIZONS OFFICE, 2ND FLOOR,<br>ANAND BHAWAN,
+                                    SANSAR CHANDRA RD,<br>JAIPUR, RAJASTHAN
+                                    302001
+                                </a>
+                            </p>
+                            <p class="contact-link"><a
+                                    href="mailto:connect@orizons.in"
+                                    style="color: inherit; text-decoration: none; transition: color 0.3s ease;"
+                                    onmouseover="this.style.color='#8FA3BB'"
+                                    onmouseout="this.style.color='inherit'">connect@orizons.in</a></p>
+                            <p class="contact-link"><a
+                                    href="https://wa.me/919928741229"
+                                    target="_blank" rel="noopener noreferrer"
+                                    style="color: inherit; text-decoration: none; transition: color 0.3s ease;"
+                                    onmouseover="this.style.color='#8FA3BB'"
+                                    onmouseout="this.style.color='inherit'">+91
+                                    99287 41229</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom-bar">
+                    <p class="copyright-text">© 2026 ORIZONS. ALL RIGHTS
+                        RESERVED.</p>
+                    <p class="design-credit">DESIGN BY <span
+                            class="accent-text">ORIZONS STUDIO</span></p>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // Custom Cursor (Desktop Only)
+            const cursor = document.querySelector('.custom-cursor');
+            const follower = document.querySelector('.cursor-follower');
+            if (cursor && follower && window.innerWidth > 900) {
+                cursor.style.display = 'block';
+                follower.style.display = 'block';
+                document.addEventListener('mousemove', (e) => {
+                    requestAnimationFrame(() => {
+                        cursor.style.transform = `translate(${e.clientX - 4}px, ${e.clientY - 4}px)`;
+                        follower.style.transform = `translate(${e.clientX - 20}px, ${e.clientY - 20}px)`;
+                    });
+                });
+            }
+
+            // Navbar Scroll Logic
+            const mainNav = document.getElementById('main-nav');
+            window.addEventListener('scroll', () => {
+                mainNav.classList.toggle('scrolled', window.scrollY > 50);
+            }, { passive: true });
+
+            // Mobile Menu Toggle
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', () => {
+                    const open = mainNav.classList.toggle('menu-open');
+                    document.body.style.overflow = open ? 'hidden' : '';
+                });
+            }
+
+            // WhatsApp Form Submit
+            function sendToWhatsApp() {
+                const name = document.getElementById('name').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const city = document.getElementById('city').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const projectType = document.getElementById('project-type').value;
+                const message = document.getElementById('message').value.trim();
+
+                if (!name || !phone || !city) {
+                    alert('Please fill in the mandatory fields: Name, Phone Number, and City.');
+                    return;
+                }
+
+                let rawText = `Hello Orizons Studio,\n\nI would like to request a consultation. Here are my details:\n\n*Name:* ${name}\n*Phone:* ${phone}\n*City:* ${city}\n`;
+                if (email) rawText += `*Email:* ${email}\n`;
+                if (projectType) rawText += `*Interested In:* ${projectType}\n`;
+                if (message) rawText += `*Project Details:* ${message}\n`;
+                rawText += `\nLooking forward to speaking with you!`;
+
+                window.open(`https://wa.me/919928741229?text=${encodeURIComponent(rawText)}`, '_blank');
+            }
+        </script>
+    </body>
+</html>

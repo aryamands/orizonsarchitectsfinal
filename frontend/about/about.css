@@ -1,0 +1,274 @@
+/* --- ORIZONS V3: FULL CINEMATIC ABOUT PAGE --- */
+
+/* 1. LAYERED BACKGROUND ENGINE */
+.about-page-wrapper {
+    position: relative;
+    background-color: var(--navy-deep);
+    min-height: 100vh;
+    width: 100%;
+}
+
+.about-visual-bg {
+    position: fixed; /* Parallax: Stays fixed while content moves */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Architectural Ghost Image */
+    background: linear-gradient(rgba(11, 31, 58, 0.9), rgba(11, 31, 58, 0.95)),
+                url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    z-index: 1; /* Lowest layer */
+    opacity: 0.2;
+    filter: grayscale(1) contrast(1.1);
+    pointer-events: none;
+}
+
+/* 2. CONTENT ALIGNMENT & HERO */
+main {
+    position: relative;
+    z-index: 10; /* Sits above the background */
+    width: 100%;
+}
+
+.about-hero {
+    padding: 220px 10% 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.centered-header {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* 3. TYPOGRAPHY & GRAPHICS */
+.mini-label {
+    font-size: 11px;
+    letter-spacing: 0.6em;
+    color: var(--blueprint); /* Updated to match new theme */
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.reveal-text {
+    font-size: clamp(38px, 7vw, 85px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--arch-white);
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+}
+
+.accent-text {
+    color: var(--blueprint);
+    display: block; 
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.horizontal-line {
+    width: 80px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 40px auto;
+}
+
+.studio-story {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 750px;
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 100px;
+}
+
+
+/* ==========================================
+   4. MILLION-DOLLAR EDITORIAL NARRATIVE
+   ========================================== */
+.architectural-narrative {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 5% 120px;
+}
+
+/* The Continuous Background Line */
+.narrative-track {
+    position: absolute;
+    left: 5%;
+    top: 130px;
+    bottom: 150px;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 0;
+}
+
+/* The Glowing Animated Line */
+.narrative-progress {
+    position: absolute;
+    top: 0;
+    left: -1px;
+    width: 3px;
+    height: 0%; /* Animated by GSAP */
+    background: var(--blueprint);
+    box-shadow: 0 0 15px var(--blueprint);
+    z-index: 1;
+}
+
+/* The Asymmetrical Grid */
+.narrative-section {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    gap: 60px;
+    margin-bottom: 180px;
+    position: relative;
+    z-index: 2;
+}
+
+.narrative-section:last-child {
+    margin-bottom: 0;
+}
+
+/* The Sticky Sidebar */
+.narrative-sidebar {
+    position: sticky;
+    top: 150px;
+    height: max-content;
+    padding-left: 40px; 
+}
+
+.narrative-sidebar .mini-label {
+    letter-spacing: 0.3em;
+    color: var(--blueprint);
+    margin-bottom: 20px;
+    display: block; 
+    text-align: left; /* Overrides centered hero style */
+}
+
+.narrative-sidebar h2 {
+    font-size: clamp(35px, 4vw, 50px);
+    font-weight: 300;
+    color: white;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0;
+    text-align: left;
+}
+
+/* The Left-Aligned Paragraphs */
+.narrative-content {
+    padding-top: 10px;
+}
+
+.narrative-content p {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.9;
+    margin-bottom: 35px;
+    text-align: left; /* Explicitly left-aligned */
+    font-weight: 300;
+}
+
+/* The Connection Dots */
+.narrative-node {
+    position: absolute;
+    left: -5px;
+    top: 5px;
+    width: 13px;
+    height: 13px;
+    background: var(--navy-deep);
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    z-index: 3;
+    transition: all 0.5s ease;
+}
+
+/* Lights up when scrolled past */
+.narrative-section.active .narrative-node {
+    border-color: var(--blueprint);
+    background: var(--blueprint);
+    box-shadow: 0 0 15px rgba(143, 163, 187, 0.8);
+}
+
+
+/* ==========================================
+   5. FOUR PRINCIPLES GRID
+   ========================================== */
+.principles-section {
+    padding: 100px 5%;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.principles-header {
+    margin-bottom: 60px;
+}
+
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.principle-card {
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: left;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.principle-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255,255,255,0.2);
+}
+
+.princ-title {
+    font-size: 16px;
+    letter-spacing: 0.15em;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.princ-desc {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   6. MOBILE RESPONSIVENESS
+   ========================================== */
+@media (max-width: 900px) {
+    .narrative-section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 120px;
+    }
+    .narrative-sidebar {
+        position: relative;
+        top: 0;
+        padding-left: 30px;
+    }
+    .narrative-track { left: 20px; }
+    .narrative-node { left: -25px; top: 10px; }
+    .narrative-content p { font-size: 16px; }
+}
+
+@media (max-width: 768px) {
+    .principles-grid { grid-template-columns: 1fr; }
+    .about-hero { padding: 180px 10% 80px; }
+}
