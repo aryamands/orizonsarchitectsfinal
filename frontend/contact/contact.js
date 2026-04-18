@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const statusDiv = document.getElementById("form-status");
     const submitBtn = document.getElementById("submit-btn");
 
-    const API_URL = "http://localhost:5000/api/contact";
+    const API_URL = "/api/contact";
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
