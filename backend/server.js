@@ -116,7 +116,6 @@ const protectClientPortal = (req, res, next) => {
 };
 
 app.use('/admin', noStore);
-app.use('/client-portal', protectClientPortal);
 app.use('/client-portal', noStore);
 
 const frontendDirCandidates = [
