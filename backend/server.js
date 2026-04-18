@@ -2,9 +2,9 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const session = require('express-session');
-const MongoStore = require('connect-mongo');
+const cookieParser = require('cookie-parser');
 const bcrypt = require('bcryptjs');
+const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 
@@ -13,6 +13,40 @@ const Subscriber = require('./models/Subscriber');
 const app = express();
 const PORT = process.env.PORT || 5000;
 const mongoURI = process.env.MONGO_URI || 'mongodb+srv://admin:Admin%40123@cluster0.hr47sc6.mongodb.net/orizons_v3?appName=Cluster0';
+const SECRET = process.env.SESSION_SECRET || 'arch_secret_orizons_2026';
+const AUTH_COOKIE = 'orizons.auth';
+
+// ==========================================
+// STATELESS AUTH (HMAC-SIGNED COOKIE)
+// No MongoDB needed — works on any serverless instance
+// ==========================================
+function createAuthToken() {
+    const payload = JSON.stringify({ auth: true, ts: Date.now() });
+    const sig = crypto.createHmac('sha256', SECRET).update(payload).digest('hex');
+    return Buffer.from(payload).toString('base64') + '.' + sig;
+}
+
+function verifyAuthToken(token) {
+    if (!token) return false;
+    try {
+        const dot = token.lastIndexOf('.');
+        const enc = token.slice(0, dot);
+        const sig = token.slice(dot + 1);
+        const payload = Buffer.from(enc, 'base64').toString();
+        const expected = crypto.createHmac('sha256', SECRET).update(payload).digest('hex');
+        if (sig !== expected) return false;
+        const { auth, ts } = JSON.parse(payload);
+        return auth === true && Date.now() - ts < 86400000;
+    } catch { return false; }
+}
+
+const cookieOpts = {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+    maxAge: 86400000,
+    path: '/'
+};
 
 // ==========================================
 // SERVERLESS DB CONNECTION CACHE
@@ -30,53 +64,27 @@ function getDBClient() {
             return m.connection.getClient();
         }).catch(err => {
             clientPromise = null;
-            console.error('[ERROR] DB INIT:', err.message);
+            console.error('[ERROR] DB:', err.message);
             throw err;
         });
     }
     return clientPromise;
 }
 
-// Warm up connection on cold start
 getDBClient().catch(() => {});
 
 // ==========================================
 // 1. CORE MIDDLEWARE
 // ==========================================
 app.use(express.json());
+app.use(cookieParser());
 app.use(cors({ origin: true, credentials: true }));
 
-// Ensure DB is connected before every request
+// Ensure DB connected before data routes
 app.use(async (req, res, next) => {
-    try {
-        await getDBClient();
-        next();
-    } catch (err) {
-        console.error('[ERROR] DB not ready:', err.message);
-        next(err);
-    }
+    try { await getDBClient(); next(); }
+    catch (err) { next(err); }
 });
-
-// ==========================================
-// 2. SESSION ENGINE
-// ==========================================
-app.use(session({
-    name: 'orizons.sid',
-    secret: process.env.SESSION_SECRET || 'arch_secret_orizons_2026',
-    resave: false,
-    saveUninitialized: false,
-    store: MongoStore.create({
-        clientPromise: getDBClient(),
-        ttl: 86400,
-        autoRemove: 'native'
-    }),
-    cookie: {
-        secure: process.env.NODE_ENV === 'production',
-        httpOnly: true,
-        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-        maxAge: 1000 * 60 * 60 * 24
-    }
-}));
 
 // ==========================================
 // 1.5 MONGOOSE DATA MODELS
@@ -84,35 +92,28 @@ app.use(session({
 const inquirySchema = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true },
-    type: String,
-    budget: String,
-    notes: String,
+    type: String, budget: String, notes: String,
     submittedAt: { type: Date, default: Date.now }
 });
 const Inquiry = mongoose.model('Inquiry', inquirySchema, 'clientdatas');
 
 app.get('/api/check-db', async (req, res) => {
     try {
-        const allLeads = await Inquiry.find({});
-        res.json({ connected: true, readyState: mongoose.connection.readyState, count: allLeads.length });
+        const count = await Inquiry.countDocuments();
+        res.json({ connected: true, readyState: mongoose.connection.readyState, count });
     } catch (err) {
-        res.status(500).json({ connected: false, error: err.message, readyState: mongoose.connection.readyState });
+        res.status(500).json({ connected: false, error: err.message });
     }
 });
 
+// ==========================================
+// 2. STATIC FILES & ROUTES
+// ==========================================
 const noStore = (req, res, next) => {
     res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
     res.set('Pragma', 'no-cache');
     res.set('Expires', '0');
     next();
-};
-
-// ==========================================
-// 3. SECURITY GATEKEEPER
-// ==========================================
-const protectClientPortal = (req, res, next) => {
-    if (req.session && req.session.isAuthenticated) return next();
-    return res.redirect('/admin/admin.html');
 };
 
 app.use('/admin', noStore);
@@ -143,7 +144,7 @@ app.get(frontendPageRoutes, (req, res, next) => {
 });
 
 // ==========================================
-// 4. ADMIN LOGIN
+// 3. ADMIN LOGIN / LOGOUT / AUTH CHECK
 // ==========================================
 app.post('/api/admin/login', async (req, res) => {
     const { username, password } = req.body;
@@ -151,14 +152,8 @@ app.post('/api/admin/login', async (req, res) => {
         if (username === 'Orizons') {
             const isMatch = await bcrypt.compare(password, '$2b$10$qYTkmTzn3cIndtFogJ7RiOO3tToULUns2XMvIQ0c2R3n/UFBLsTsu');
             if (isMatch) {
-                return req.session.regenerate((err) => {
-                    if (err) return res.status(500).json({ success: false, error: 'SESSION_INIT_FAILED' });
-                    req.session.isAuthenticated = true;
-                    return req.session.save((saveErr) => {
-                        if (saveErr) return res.status(500).json({ success: false, error: 'SESSION_SAVE_FAILED' });
-                        res.json({ success: true });
-                    });
-                });
+                res.cookie(AUTH_COOKIE, createAuthToken(), cookieOpts);
+                return res.json({ success: true });
             }
         }
         return res.status(401).json({ success: false, error: 'AUTH_FAILED' });
@@ -167,32 +162,19 @@ app.post('/api/admin/login', async (req, res) => {
     }
 });
 
-// ==========================================
-// 4.5 LOGOUT
-// ==========================================
 app.post('/api/admin/logout', (req, res) => {
-    if (!req.session) {
-        res.clearCookie('orizons.sid', { path: '/' });
-        return res.json({ success: true });
-    }
-    return req.session.destroy((err) => {
-        res.clearCookie('orizons.sid', { path: '/' });
-        if (err) return res.status(500).json({ success: false });
-        return res.json({ success: true, message: 'VAULT_LOCKED' });
-    });
+    res.clearCookie(AUTH_COOKIE, { path: '/', secure: cookieOpts.secure, sameSite: cookieOpts.sameSite });
+    return res.json({ success: true, message: 'VAULT_LOCKED' });
 });
 
-// ==========================================
-// 4.6 AUTH CHECK
-// ==========================================
 app.get('/api/check-auth', noStore, (req, res) => {
-    if (req.session && req.session.isAuthenticated)
+    if (verifyAuthToken(req.cookies?.[AUTH_COOKIE]))
         return res.status(200).json({ authenticated: true });
     return res.status(401).json({ authenticated: false });
 });
 
 // ==========================================
-// 5. DATA PIPELINES
+// 4. DATA PIPELINES
 // ==========================================
 app.post('/api/contact', async (req, res) => {
     try {
@@ -216,7 +198,7 @@ app.post('/api/subscribe', async (req, res) => {
 });
 
 // ==========================================
-// 6. SERVER LAUNCH
+// 5. SERVER LAUNCH
 // ==========================================
 if (process.env.NODE_ENV !== 'production') {
     app.listen(PORT, () => console.log(`[STARTED] ORIZONS ENGINE: http://localhost:${PORT}`));
