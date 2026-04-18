@@ -65,7 +65,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     unset: 'destroy',
-    store: MongoStore.create({ mongooseConnection: mongoose.connection }),
+    store: MongoStore.create({ mongoUrl: mongoURI, ttl: 86400 }),
     cookie: {
         secure: process.env.NODE_ENV === 'production',
         httpOnly: true,
