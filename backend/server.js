@@ -5,7 +5,6 @@ const cors = require('cors');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const bcrypt = require('bcryptjs');
-const dns = require('dns');
 const fs = require('fs');
 const path = require('path');
 
@@ -19,39 +18,19 @@ const PORT = process.env.PORT || 5000;
 // ==========================================
 app.use(express.json());
 
-const allowedOrigins = [
-    'http://127.0.0.1:5500',
-    'http://localhost:5000',
-    process.env.FRONTEND_URL
-].filter(Boolean);
-
 app.use(cors({
-    origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
-        callback(new Error('Not allowed by CORS'));
-    },
+    origin: true,
     credentials: true
 }));
 
 const mongoURI = process.env.MONGO_URI || 'mongodb+srv://admin:Admin%40123@cluster0.hr47sc6.mongodb.net/orizons_v3?appName=Cluster0';
 
-const preferredDnsServers = (process.env.MONGO_DNS_SERVERS || '8.8.8.8,1.1.1.1')
-    .split(',')
-    .map((value) => value.trim())
-    .filter(Boolean);
-
-if (preferredDnsServers.length > 0) {
-    try {
-        dns.setServers(preferredDnsServers);
-        console.log(`[INFO] DNS resolvers set for MongoDB SRV lookup: ${preferredDnsServers.join(', ')}`);
-    } catch (error) {
-        console.warn('[WARN] Failed to set custom DNS resolvers:', error.message);
-    }
-}
-
-mongoose.connect(mongoURI)
-    .then(() => console.log('[OK] ORIZONS DATABASE CONNECTED'))
-    .catch(err => console.log('[ERROR] DATABASE ERROR:', err.message));
+mongoose.connect(mongoURI, {
+    serverSelectionTimeoutMS: 10000,
+    socketTimeoutMS: 30000,
+    bufferCommands: false
+}).then(() => console.log('[OK] ORIZONS DATABASE CONNECTED'))
+  .catch(err => console.log('[ERROR] DATABASE ERROR:', err.message));
 
 // ==========================================
 // 1.5 MONGOOSE DATA MODELS
