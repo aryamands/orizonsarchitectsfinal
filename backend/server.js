@@ -17,22 +17,28 @@ const mongoURI = process.env.MONGO_URI || 'mongodb+srv://admin:Admin%40123@clust
 // ==========================================
 // SERVERLESS DB CONNECTION CACHE
 // ==========================================
-let cachedClient = null;
+let clientPromise = null;
 
-async function getDBClient() {
-    if (cachedClient) return cachedClient;
-    const m = await mongoose.connect(mongoURI, {
-        serverSelectionTimeoutMS: 10000,
-        socketTimeoutMS: 30000,
-        family: 4,
-    });
-    cachedClient = m.connection.getClient();
-    console.log('[OK] ORIZONS DATABASE CONNECTED');
-    return cachedClient;
+function getDBClient() {
+    if (!clientPromise) {
+        clientPromise = mongoose.connect(mongoURI, {
+            serverSelectionTimeoutMS: 10000,
+            socketTimeoutMS: 30000,
+            family: 4,
+        }).then(m => {
+            console.log('[OK] ORIZONS DATABASE CONNECTED');
+            return m.connection.getClient();
+        }).catch(err => {
+            clientPromise = null;
+            console.error('[ERROR] DB INIT:', err.message);
+            throw err;
+        });
+    }
+    return clientPromise;
 }
 
-// Start connection immediately on cold start
-getDBClient().catch(err => console.error('[ERROR] DB INIT:', err.message));
+// Warm up connection on cold start
+getDBClient().catch(() => {});
 
 // ==========================================
 // 1. CORE MIDDLEWARE
