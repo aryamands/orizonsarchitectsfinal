@@ -133,6 +133,8 @@
     filter: brightness(1) contrast(1.1);
 }
 
+/* Use for images that must be shown fully without any crop. */
+
 /* Responsive */
 @media (max-width: 1024px) {
     .service-row, .service-row:nth-child(even) {
