@@ -4,6 +4,12 @@
 */
 
 document.addEventListener("DOMContentLoaded", () => {
+    const API_BASE = window.location.origin === "http://127.0.0.1:5500"
+        ? "http://localhost:5000"
+        : "";
+
+    const apiUrl = (path) => `${API_BASE}${path}`;
+
     // 1. ENGINE INITIALIZATION
     if (typeof gsap !== "undefined") {
         gsap.registerPlugin(ScrollTrigger);
@@ -57,15 +63,16 @@ document.addEventListener("DOMContentLoaded", () => {
             };
 
             try {
-                const res = await fetch("http://localhost:5000/api/admin/login", {
+                const res = await fetch(apiUrl("/api/admin/login"), {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
+                    credentials: "include",
                     body: JSON.stringify(credentials)
                 });
                 const data = await res.json();
 
                 if (res.ok && data.success) {
-                    window.location.href = "../client-portal/client.html";
+                    window.location.href = apiUrl("/client-portal/client.html");
                 } else {
                     // Shake the card on failure
                     gsap.to(".auth-card", { x: 10, repeat: 5, yoyo: true, duration: 0.05 });
@@ -121,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
             };
 
             try {
-                const res = await fetch("http://localhost:5000/api/contact", {
+                const res = await fetch(apiUrl("/api/contact"), {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(payload)
@@ -142,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             const email = document.getElementById("news-email").value;
             try {
-                const res = await fetch("http://localhost:5000/api/subscribe", {
+                const res = await fetch(apiUrl("/api/subscribe"), {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ email })

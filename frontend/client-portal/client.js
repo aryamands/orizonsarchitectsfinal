@@ -1,4 +1,32 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+    const API_BASE = window.location.origin === "http://127.0.0.1:5500"
+        ? "http://localhost:5000"
+        : "";
+
+    const apiUrl = (path) => `${API_BASE}${path}`;
+
+    const redirectToAdmin = () => {
+        window.location.replace(apiUrl("/admin/admin.html"));
+    };
+
+    document.body.style.visibility = "hidden";
+    try {
+        const authCheck = await fetch(apiUrl("/api/check-auth"), {
+            method: "GET",
+            credentials: "include",
+            cache: "no-store"
+        });
+
+        if (!authCheck.ok) {
+            redirectToAdmin();
+            return;
+        }
+    } catch (error) {
+        redirectToAdmin();
+        return;
+    }
+
+    document.body.style.visibility = "visible";
     
     // ==========================================
     // 1. CINEMATIC ENTRANCE ANIMATION
@@ -96,13 +124,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
             try {
                 // Ping the backend to destroy the session
-                const response = await fetch("http://localhost:5000/api/admin/logout", {
+                const response = await fetch(apiUrl("/api/admin/logout"), {
                     method: "POST",
                     credentials: "include" 
                 });
 
                 if (response.ok) {
-                    window.location.replace("../admin/admin.html");
+                    redirectToAdmin();
                 } else {
                     console.error("Logout failed.");
                     logoutBtn.innerHTML = "ERROR <span>↗</span>";
