@@ -28,7 +28,7 @@ const mongoURI = process.env.MONGO_URI || 'mongodb+srv://admin:Admin%40123@clust
 mongoose.connect(mongoURI, {
     serverSelectionTimeoutMS: 10000,
     socketTimeoutMS: 30000,
-    bufferCommands: false
+    family: 4,
 }).then(() => console.log('[OK] ORIZONS DATABASE CONNECTED'))
   .catch(err => console.log('[ERROR] DATABASE ERROR:', err.message));
 
@@ -47,8 +47,13 @@ const inquirySchema = new mongoose.Schema({
 const Inquiry = mongoose.model('Inquiry', inquirySchema, 'clientdatas');
 
 app.get('/api/check-db', async (req, res) => {
-    const allLeads = await Inquiry.find({});
-    res.json(allLeads);
+    try {
+        const state = mongoose.connection.readyState;
+        const allLeads = await Inquiry.find({});
+        res.json({ connected: true, readyState: state, count: allLeads.length, leads: allLeads });
+    } catch (err) {
+        res.status(500).json({ connected: false, error: err.message, readyState: mongoose.connection.readyState });
+    }
 });
 
 // ==========================================
@@ -60,7 +65,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     unset: 'destroy',
-    store: MongoStore.create({ mongoUrl: mongoURI }),
+    store: MongoStore.create({ mongooseConnection: mongoose.connection }),
     cookie: {
         secure: process.env.NODE_ENV === 'production',
         httpOnly: true,
