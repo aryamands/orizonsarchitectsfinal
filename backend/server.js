@@ -80,8 +80,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({ origin: true, credentials: true }));
 
-// Ensure DB connected before data routes
-app.use(async (req, res, next) => {
+// Ensure DB connected before API routes only
+app.use('/api', async (req, res, next) => {
     try { await getDBClient(); next(); }
     catch (err) { next(err); }
 });
