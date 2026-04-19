@@ -132,7 +132,13 @@ if (frontendDir) {
 }
 
 const frontendPageRoutes = ['/', '/index.html', '/privacy.html', '/about/about.html',
-    '/services/services.html', '/solar/solar.html', '/contact/contact.html', '/blog/index.html'];
+    '/services/services.html', '/solar/solar.html', '/contact/contact.html', '/blog/index.html',
+    '/client-portal', '/client-portal/'];
+
+app.get(['/client-portal', '/client-portal/'], (req, res) => {
+    if (frontendDir) return res.sendFile(path.join(frontendDir, 'client-portal/client.html'));
+    res.status(404).send('Not found');
+});
 
 app.get(frontendPageRoutes, (req, res, next) => {
     if (frontendDir) {
