@@ -130,6 +130,13 @@
             .manifesto-container { position: relative; z-index: 2; text-align: center; width: 90%; max-width: 1200px; }
             .manifesto-line { overflow: hidden; margin-bottom: 5px; }
             .manifesto-word { display: inline-block; font-size: clamp(35px, 6vw, 90px); font-weight: 300; color: var(--brand-white); line-height: 1.1; letter-spacing: -0.02em; transform: translateY(120%); will-change: transform; }
+            .manifesto-word.manifesto-hero-text {
+                display: block;
+                white-space: normal;
+                text-wrap: balance;
+                font-size: clamp(28px, 3.4vw, 56px);
+                line-height: 1.15;
+            }
             .accent-word { color: #8FA3BB; font-weight: 400; }
             .scroll-indicator-wrap { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 15px; z-index: 2; opacity: 0; }
             .scroll-label { font-size: 9px; letter-spacing: 0.4em; color: rgba(255,255,255,0.4); writing-mode: vertical-rl; transform: rotate(180deg); }
@@ -285,6 +292,18 @@
                MOBILE RESPONSIVE STYLES (MAX-WIDTH: 900px)
                ========================================== */
             @media (max-width: 900px) {
+                .manifesto-container { width: min(92vw, 560px); }
+                .manifesto-line {
+                    max-width: 26ch;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-bottom: 10px;
+                }
+                .manifesto-word.manifesto-hero-text {
+                    font-size: clamp(24px, 6.8vw, 30px);
+                    line-height: 1.2;
+                }
+
                 /* Hide Custom Cursor */
                 .custom-cursor, .cursor-follower { display: none !important; }
 
@@ -395,6 +414,11 @@
 
             /* Hide hamburger on Desktop */
             @media (min-width: 901px) {
+                .manifesto-line {
+                    max-width: 44ch;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
                 .mobile-menu-toggle { display: none; }
                 #main-nav nav { display: flex; align-items: center; gap: 30px; }
             }
@@ -457,10 +481,10 @@
             </div>
             <div class="manifesto-container">
                 <div class="manifesto-line">
-                    <span class="manifesto-word" style="font-size: clamp(18px, 2.8vw, 48px); white-space: nowrap;">Designed with intent. Built with precision.</span>
+                    <span class="manifesto-word manifesto-hero-text">Designed with intent. Built with precision.</span>
                 </div>
                 <div class="manifesto-line">
-                    <span class="manifesto-word accent-word" style="font-size: clamp(18px, 2.8vw, 48px); white-space: nowrap;">Architecture, interiors and solar under one roof.</span>
+                    <span class="manifesto-word accent-word manifesto-hero-text">Architecture, interiors and solar under one roof.</span>
                 </div>
             </div>
             <div class="scroll-indicator-wrap">
@@ -1374,4 +1398,3 @@
         </script>
     </body>
 </html>
-
