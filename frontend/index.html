@@ -415,9 +415,14 @@
             /* Hide hamburger on Desktop */
             @media (min-width: 901px) {
                 .manifesto-line {
-                    max-width: 44ch;
+                    max-width: none;
                     margin-left: auto;
                     margin-right: auto;
+                }
+                .manifesto-word.manifesto-hero-text {
+                    white-space: nowrap;
+                    font-size: clamp(22px, 3.2vw, 60px);
+                    line-height: 1.1;
                 }
                 .mobile-menu-toggle { display: none; }
                 #main-nav nav { display: flex; align-items: center; gap: 30px; }
