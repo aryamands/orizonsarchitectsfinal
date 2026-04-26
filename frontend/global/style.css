@@ -88,7 +88,7 @@ header#main-nav.scrolled {
 nav a {
     text-decoration: none;
     color: var(--blueprint);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     margin-left: 40px;
@@ -134,7 +134,7 @@ nav a:hover, nav a.active {
 }
 
 .hero-showroom h1 {
-    font-size: clamp(40px, 8vw, 90px);
+    font-size: clamp(40px, 7vw, 80px);
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 0.15em;
@@ -383,7 +383,7 @@ body:not(:has(.custom-cursor)) * {
 }
 
 .executions-header h2 {
-    font-size: 26px;
+    font-size: 28px;
     color: var(--brand-white);
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -767,7 +767,7 @@ body:not(:has(.custom-cursor)) * {
 }
 
 .wwd-title {
-    font-size: clamp(45px, 6vw, 75px); /* Made the title larger */
+    font-size: clamp(38px, 5.5vw, 68px);
     font-weight: 300;
     color: var(--brand-white);
     line-height: 1.1;
@@ -943,7 +943,7 @@ body:not(:has(.custom-cursor)) * {
 }
 
 .principles-header h2 {
-    font-size: clamp(35px, 5vw, 55px);
+    font-size: clamp(38px, 5.5vw, 68px);
     font-weight: 300;
     color: var(--brand-white);
     letter-spacing: -0.02em;
@@ -1074,7 +1074,7 @@ body:not(:has(.custom-cursor)) * {
 }
 
 .hww-title {
-    font-size: clamp(45px, 6vw, 70px);
+    font-size: clamp(38px, 5.5vw, 68px);
     font-weight: 300;
     color: var(--brand-white);
     letter-spacing: -0.02em;
@@ -1240,7 +1240,7 @@ body:not(:has(.custom-cursor)) * {
 }
 
 .consult-title {
-    font-size: clamp(40px, 6vw, 65px);
+    font-size: clamp(38px, 5.5vw, 68px);
     font-weight: 300;
     color: var(--brand-white);
     letter-spacing: -0.02em;
@@ -1436,7 +1436,7 @@ html {
 }
 
 .primary-services-header h2 {
-    font-size: clamp(35px, 5vw, 55px);
+    font-size: clamp(38px, 5.5vw, 68px);
     font-weight: 300;
     color: var(--brand-white);
     letter-spacing: -0.02em;
@@ -1563,7 +1563,7 @@ html {
 }
 
 .portfolio-title {
-    font-size: clamp(35px, 5vw, 55px);
+    font-size: clamp(38px, 5.5vw, 68px);
     font-weight: 300;
     color: var(--brand-white);
     margin-top: 30px;
@@ -1743,7 +1743,7 @@ html {
 
     /* 8. TYPOGRAPHY SCALING */
     h1 {
-        font-size: 55px !important;
+        font-size: 45px !important;
     }
     .consult-title, .portfolio-title, .wwd-title, .hww-title, .princ-title-h2 {
         font-size: 38px !important;

@@ -61,7 +61,7 @@ main {
 }
 
 .reveal-text {
-    font-size: clamp(38px, 7vw, 85px);
+    font-size: clamp(40px, 7vw, 80px);
     font-weight: 300;
     line-height: 1.1;
     color: var(--arch-white);
@@ -157,7 +157,7 @@ main {
 }
 
 .narrative-sidebar h2 {
-    font-size: clamp(35px, 4vw, 50px);
+    font-size: clamp(30px, 4vw, 48px);
     font-weight: 300;
     color: white;
     line-height: 1.1;
