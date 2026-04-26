@@ -644,7 +644,7 @@ body:not(:has(.custom-cursor)) * {
 
 /* 2. The Massive Centerpiece Quote */
 .philosophy-quote {
-    font-size: clamp(28px, 3vw, 44px);
+    font-size: clamp(28px, 4vw, 48px);
     font-weight: 300;
     color: var(--brand-white);
     line-height: 1.25;
