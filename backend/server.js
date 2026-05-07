@@ -18,7 +18,7 @@ const AUTH_COOKIE = 'orizons.auth';
 
 // ==========================================
 // STATELESS AUTH (HMAC-SIGNED COOKIE)
-// No MongoDB needed — works on any serverless instance
+// No MongoDB needed, works on any serverless instance
 // ==========================================
 function createAuthToken() {
     const payload = JSON.stringify({ auth: true, ts: Date.now() });
@@ -126,26 +126,96 @@ const frontendDirCandidates = [
 ];
 const frontendDir = frontendDirCandidates.find(c => fs.existsSync(path.join(c, 'index.html')));
 
+// Cache headers, image/font assets immutable for a year, CSS/JS short-lived,
+// HTML cached at edge with stale-while-revalidate so Vercel CDN serves instantly.
+const setCacheHeaders = (req, res, next) => {
+    if (req.method !== 'GET' && req.method !== 'HEAD') return next();
+    if (req.path.startsWith('/api/') || req.path.startsWith('/admin') || req.path.startsWith('/client-portal')) return next();
+    if (/\.(jpg|jpeg|png|gif|webp|avif|svg|ico|woff2?|ttf|otf|eot)$/i.test(req.path)) {
+        res.set('Cache-Control', 'public, max-age=31536000, immutable');
+    } else if (/\.(css|js)$/i.test(req.path)) {
+        res.set('Cache-Control', 'public, max-age=86400, must-revalidate');
+    } else if (/\.(xml|txt|json)$/i.test(req.path)) {
+        res.set('Cache-Control', 'public, max-age=3600, s-maxage=86400');
+    } else {
+        res.set('Cache-Control', 'public, max-age=300, s-maxage=86400, stale-while-revalidate=86400');
+    }
+    next();
+};
+app.use(setCacheHeaders);
+
+// Clean URL → file mapping. Lets us serve /services instead of /services/services.html
+// without renaming files. Drives all canonicals + sitemap.
+const cleanUrlMap = {
+    '/services': 'services/services.html',
+    '/about': 'about/about.html',
+    '/contact': 'contact/contact.html',
+    '/solar': 'solar/solar.html',
+    '/privacy': 'privacy.html',
+    '/blog': 'blog/index.html'
+};
+
+// 301 redirect ugly .html paths → clean URLs so any inbound backlinks
+// transfer link equity instead of leaking it into a duplicate URL.
+const legacyRedirects = {
+    '/index.html': '/',
+    '/services/services.html': '/services',
+    '/about/about.html': '/about',
+    '/contact/contact.html': '/contact',
+    '/solar/solar.html': '/solar',
+    '/privacy.html': '/privacy',
+    '/blog/index.html': '/blog'
+};
+
+app.use((req, res, next) => {
+    if (legacyRedirects[req.path]) {
+        return res.redirect(301, legacyRedirects[req.path]);
+    }
+    // Strip .html on /blog/<slug>.html and /portfolio/<slug>.html
+    if (req.path.endsWith('.html') &&
+        (req.path.startsWith('/blog/') || req.path.startsWith('/portfolio/'))) {
+        return res.redirect(301, req.path.replace(/\.html$/, ''));
+    }
+    // Trailing-slash normalization (keep root and /blog/ which has an index.html)
+    if (req.path.length > 1 && req.path !== '/blog/' && req.path.endsWith('/')) {
+        const target = req.path.replace(/\/+$/, '') + (req.url.slice(req.path.length) || '');
+        return res.redirect(301, target);
+    }
+    next();
+});
+
 if (frontendDir) {
-    app.use(express.static(frontendDir));
+    app.use(express.static(frontendDir, { extensions: ['html'], redirect: false }));
     console.log(`[INFO] Frontend static directory mapped: ${frontendDir}`);
 }
-
-const frontendPageRoutes = ['/', '/index.html', '/privacy.html', '/about/about.html',
-    '/services/services.html', '/solar/solar.html', '/contact/contact.html', '/blog/index.html',
-    '/client-portal', '/client-portal/'];
 
 app.get(['/client-portal', '/client-portal/'], (req, res) => {
     if (frontendDir) return res.sendFile(path.join(frontendDir, 'client-portal/client.html'));
     res.status(404).send('Not found');
 });
 
-app.get(frontendPageRoutes, (req, res, next) => {
-    if (frontendDir) {
-        const p = req.path === '/' ? 'index.html' : req.path.replace(/^\/+/, '');
-        const filePath = path.join(frontendDir, p);
-        if (fs.existsSync(filePath)) return res.sendFile(filePath);
-    }
+// Clean URL routes for top-level pages
+app.get(Object.keys(cleanUrlMap), (req, res, next) => {
+    if (!frontendDir) return next();
+    const filePath = path.join(frontendDir, cleanUrlMap[req.path]);
+    if (fs.existsSync(filePath)) return res.sendFile(filePath);
+    next();
+});
+
+// Clean URLs for blog posts and portfolio case studies
+app.get(['/blog/:slug', '/portfolio/:slug'], (req, res, next) => {
+    if (!frontendDir) return next();
+    const slug = req.params.slug;
+    if (slug.includes('.')) return next();
+    const section = req.path.split('/')[1];
+    const filePath = path.join(frontendDir, section, `${slug}.html`);
+    if (fs.existsSync(filePath)) return res.sendFile(filePath);
+    next();
+});
+
+// Root + legacy support
+app.get('/', (req, res, next) => {
+    if (frontendDir) return res.sendFile(path.join(frontendDir, 'index.html'));
     next();
 });
 

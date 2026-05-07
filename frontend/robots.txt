@@ -1,3 +1,74 @@
+# Orizons Architects and Builders
+# https://orizons.in/
+
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /client-portal
+Disallow: /client-portal/
+Disallow: /api/
+
+# Traditional search engines
+User-agent: Googlebot
+Allow: /
+Disallow: /admin
+Disallow: /client-portal
+Disallow: /api/
+
+User-agent: Googlebot-Image
+Allow: /
+Disallow: /admin
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin
+Disallow: /client-portal
+Disallow: /api/
+
+# Generative engines (GEO), explicitly allowed for citation
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Block obvious scrapers
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
 Sitemap: https://orizons.in/sitemap.xml
+Host: https://orizons.in

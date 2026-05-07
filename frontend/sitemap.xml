@@ -1,50 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Homepage -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
   <url>
     <loc>https://orizons.in/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-  </url>
-  
-  <!-- Core Pages -->
-  <url>
-    <loc>https://orizons.in/services/services</loc>
-    <lastmod>2026-04-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://orizons.in/solar/solar</loc>
-    <lastmod>2026-04-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://orizons.in/about/about</loc>
-    <lastmod>2026-04-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://orizons.in/contact/contact</loc>
-    <lastmod>2026-04-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://orizons.in/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://orizons.in/" />
+    <image:image>
+      <image:loc>https://orizons.in/global/assets/og-hero.jpg</image:loc>
+      <image:title>Orizons Architects and Builders, Jaipur &amp; Aurangabad</image:title>
+    </image:image>
   </url>
 
-  <!-- Blog Hub & Posts -->
   <url>
-    <loc>https://orizons.in/blog/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <loc>https://orizons.in/services</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://orizons.in/services" />
+  </url>
+
+  <url>
+    <loc>https://orizons.in/solar</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://orizons.in/solar" />
+    <image:image>
+      <image:loc>https://orizons.in/global/assets/og-solar-hero.jpg</image:loc>
+      <image:title>Rooftop solar installation in Jaipur and Aurangabad</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://orizons.in/about</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://orizons.in/about" />
+  </url>
+
+  <url>
+    <loc>https://orizons.in/contact</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://orizons.in/contact" />
+  </url>
+
+  <url>
+    <loc>https://orizons.in/portfolio/sanganer-hospitality</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://orizons.in/portfolio/sanganer-hospitality" />
+  </url>
+
+  <url>
+    <loc>https://orizons.in/portfolio/smart-tech-office</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://orizons.in/portfolio/smart-tech-office" />
+  </url>
+
+  <url>
+    <loc>https://orizons.in/portfolio/subhash-nagar</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://orizons.in/portfolio/subhash-nagar" />
+  </url>
+
+  <url>
+    <loc>https://orizons.in/blog</loc>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://orizons.in/blog" />
   </url>
+
   <url>
     <loc>https://orizons.in/blog/solar-panel-cost-india-2026</loc>
     <lastmod>2026-04-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://orizons.in/blog/solar-panel-cost-india-2026" />
   </url>
+
 </urlset>
