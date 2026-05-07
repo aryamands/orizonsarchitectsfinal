@@ -1336,7 +1336,8 @@ body:not(:has(.custom-cursor)) * {
 
 /* Enables buttery smooth scrolling for anchor links */
 html {
-    scroll-behavior: smooth; 
+    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 /* Logo Styling & Alignment */
