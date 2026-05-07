@@ -1098,6 +1098,101 @@
                 gap: 30px;
             }
         }
+        .faq-section {
+            background-color: #0B1F3A;
+            padding: 100px 5% 120px;
+            color: white;
+        }
+        .faq-wrapper {
+            max-width: 880px;
+            margin: 0 auto;
+        }
+        .faq-section .section-label-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            font-size: 12px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.55);
+        }
+        .faq-section .section-label-center .accent-line {
+            width: 40px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .faq-title {
+            font-size: clamp(32px, 5vw, 56px);
+            font-weight: 300;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            text-align: center;
+            margin: 0 0 60px;
+            color: white;
+        }
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        .faq-item {
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 0;
+        }
+        .faq-item:last-child {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .faq-item summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 24px 40px 24px 0;
+            font-size: clamp(16px, 1.4vw, 19px);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.92);
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after {
+            content: "+";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 22px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.5);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .faq-item[open] summary::after {
+            content: "−";
+            color: white;
+        }
+        .faq-item summary:hover { color: white; }
+        .faq-answer {
+            padding: 0 40px 28px 0;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+            line-height: 1.75;
+        }
+        .faq-answer p { margin: 0 0 12px; }
+        .faq-answer p:last-child { margin: 0; }
+        .faq-answer a {
+            color: white;
+            text-decoration: underline;
+            text-decoration-color: rgba(255, 255, 255, 0.3);
+            text-underline-offset: 4px;
+            transition: text-decoration-color 0.3s ease;
+        }
+        .faq-answer a:hover { text-decoration-color: white; }
+        @media (max-width: 720px) {
+            .faq-section { padding: 70px 5% 90px; }
+            .faq-title { margin-bottom: 40px; }
+            .faq-item summary { padding: 20px 32px 20px 0; font-size: 16px; }
+            .faq-answer { padding: 0 32px 24px 0; font-size: 15px; }
+        }
     </style>
 </head>
 
@@ -1664,6 +1759,151 @@
             </div>
         </div>
     </section>
+
+    <section class="faq-section" id="faq" aria-labelledby="faq-title">
+        <div class="faq-wrapper">
+            <div class="section-label-center">
+                <span class="accent-line"></span>
+                <span>FREQUENTLY ASKED</span>
+                <span class="accent-line"></span>
+            </div>
+            <h2 id="faq-title" class="faq-title">Everything you might want to know.</h2>
+
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>What does Orizons Architects and Builders do?</summary>
+                    <div class="faq-answer">
+                        <p>Orizons Architects and Builders is an architecture, interior design, construction management and rooftop solar studio with offices in Jaipur and Aurangabad. The same team handles concept, drawings, statutory approvals, execution, interiors and handover, so the original design intent survives all the way to the finished building.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Where is Orizons based?</summary>
+                    <div class="faq-answer">
+                        <p>We operate from two offices. Our Jaipur studio is at 2nd Floor, Anand Bhawan, Sansar Chandra Road, Jaipur, Rajasthan 302001. Our Aurangabad studio is at Shop No. 2, August Homes, Ulkanagri, Aurangabad, Maharashtra 431005. Both offices are open Monday to Saturday, 10am to 7pm.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Which areas do you serve in Jaipur and Aurangabad?</summary>
+                    <div class="faq-answer">
+                        <p>In Jaipur we work across C-Scheme, Bani Park, Civil Lines, Vaishali Nagar, Mansarovar, Malviya Nagar, Raja Park, Jhotwara, Jagatpura and Tonk Road. In Aurangabad we work across CIDCO, Garkheda, Ulkanagri, Jalna Road, Beed Bypass, Waluj, Padampura, Samarth Nagar, Osmanpura, Chikalthana and Jyoti Nagar.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What services does Orizons offer?</summary>
+                    <div class="faq-answer">
+                        <p>Four services delivered by the same team: <strong>architecture design</strong> for residential and commercial buildings, <strong>interior design</strong> for homes and workplaces, <strong>construction management</strong> from foundation to handover, and <strong>rooftop solar installation</strong>. Bundling design and execution under one studio removes the gap where most projects lose quality.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Why does it matter that Orizons does solar as architects?</summary>
+                    <div class="faq-answer">
+                        <p>Most rooftop solar in India is installed by electricians who treat panel layout as a purely electrical decision. We treat it as an architectural decision: roof structure, load distribution, sightlines from the street, future expansion, and cable routing. The system performs better and looks intentional rather than bolted on.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Do you handle the PM Surya Ghar subsidy and net metering?</summary>
+                    <div class="faq-answer">
+                        <p>Yes. For residential rooftop solar in Jaipur and Aurangabad we file the PM Surya Ghar subsidy application, coordinate with the discom for net metering (JVVNL in Jaipur, MSEDCL in Aurangabad), and hand over a working system with the subsidy credited.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Who is the principal architect?</summary>
+                    <div class="faq-answer">
+                        <p>Orizons is founded and led by Shobhit Modi, a registered architect with the Council of Architecture, India.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>How do I start a project with Orizons?</summary>
+                    <div class="faq-answer">
+                        <p>Book a free consultation through the <a href="/contact">contact page</a>, or reach us on WhatsApp at +91 99287 41229 (Jaipur) or +91 96077 10044 (Aurangabad). We discuss scope, site, timeline and budget before any commitment.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": "https://orizons.in/#faq",
+      "isPartOf": { "@id": "https://orizons.in/#webpage" },
+      "inLanguage": "en-IN",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does Orizons Architects and Builders do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Orizons Architects and Builders is an architecture, interior design, construction management and rooftop solar studio with offices in Jaipur and Aurangabad. The same team handles concept, drawings, statutory approvals, execution, interiors and handover, so the original design intent survives all the way to the finished building."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is Orizons based?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Orizons operates from two offices. The Jaipur studio is at 2nd Floor, Anand Bhawan, Sansar Chandra Road, Jaipur, Rajasthan 302001. The Aurangabad studio is at Shop No. 2, August Homes, Ulkanagri, Aurangabad, Maharashtra 431005. Both offices are open Monday to Saturday, 10am to 7pm."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which areas do you serve in Jaipur and Aurangabad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In Jaipur, Orizons works across C-Scheme, Bani Park, Civil Lines, Vaishali Nagar, Mansarovar, Malviya Nagar, Raja Park, Jhotwara, Jagatpura and Tonk Road. In Aurangabad, Orizons works across CIDCO, Garkheda, Ulkanagri, Jalna Road, Beed Bypass, Waluj, Padampura, Samarth Nagar, Osmanpura, Chikalthana and Jyoti Nagar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What services does Orizons offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Four services delivered by the same team: architecture design for residential and commercial buildings, interior design for homes and workplaces, construction management from foundation to handover, and rooftop solar installation. Bundling design and execution under one studio removes the gap where most projects lose quality."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does it matter that Orizons does solar as architects?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most rooftop solar in India is installed by electricians who treat panel layout as a purely electrical decision. Orizons treats it as an architectural decision: roof structure, load distribution, sightlines from the street, future expansion, and cable routing. The system performs better and looks intentional rather than bolted on."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you handle the PM Surya Ghar subsidy and net metering?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. For residential rooftop solar in Jaipur and Aurangabad, Orizons files the PM Surya Ghar subsidy application, coordinates with the discom for net metering (JVVNL in Jaipur, MSEDCL in Aurangabad), and hands over a working system with the subsidy credited."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is the principal architect at Orizons?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Orizons is founded and led by Shobhit Modi, a registered architect with the Council of Architecture, India."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I start a project with Orizons?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Book a free consultation through the contact page at https://orizons.in/contact, or reach us on WhatsApp at +91 99287 41229 (Jaipur) or +91 96077 10044 (Aurangabad). We discuss scope, site, timeline and budget before any commitment."
+          }
+        }
+      ]
+    }
+    </script>
 
     <footer class="main-footer">
         <div class="footer-wrapper">
