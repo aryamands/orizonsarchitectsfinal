@@ -1,0 +1,386 @@
+/* ==========================================================================
+   Orizons Studio — Cookie Consent Banner + Preference Center
+   Brand: Deep Navy / Blueprint / DM Sans
+   ========================================================================== */
+
+:root {
+  --oc-dark:    #0B1F3A;
+  --oc-mid:     #1B365D;
+  --oc-white:   #FFFFFF;
+  --oc-soft:    #F8F9FC;
+  --oc-accent:  #8FA3BB;
+  --oc-muted:   rgba(248, 249, 252, 0.65);
+  --oc-border:  rgba(143, 163, 187, 0.18);
+  --oc-overlay: rgba(0, 0, 0, 0.75);
+  --oc-font:    'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --oc-z:       99990;
+}
+
+#oc-banner *, #oc-pc *, #oc-launcher {
+  box-sizing: border-box;
+  font-family: var(--oc-font);
+  cursor: auto;
+}
+
+.oc-hidden { display: none !important; }
+
+/* ---- banner ---- */
+
+#oc-banner {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: var(--oc-z);
+  background: var(--oc-dark);
+  border-top: 1px solid var(--oc-border);
+  box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.4);
+  padding: 22px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  animation: oc-slide-up 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes oc-slide-up {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+#oc-banner .oc-copy { max-width: 640px; }
+
+#oc-banner .oc-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--oc-white);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+}
+
+#oc-banner .oc-text {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--oc-muted);
+  margin: 0;
+}
+
+#oc-banner .oc-text a {
+  color: var(--oc-accent);
+  text-decoration: underline;
+}
+
+#oc-banner .oc-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+/* ---- buttons ---- */
+
+.oc-btn {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 11px 22px;
+  border-radius: 2px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  line-height: 1.2;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.oc-btn:focus-visible {
+  outline: 2px solid var(--oc-accent);
+  outline-offset: 2px;
+}
+
+.oc-btn-text {
+  background: transparent;
+  border: none;
+  color: var(--oc-accent);
+  text-decoration: underline;
+  padding: 11px 4px;
+}
+
+.oc-btn-outline {
+  background: transparent;
+  border-color: rgba(143, 163, 187, 0.45);
+  color: rgba(248, 249, 252, 0.8);
+}
+
+.oc-btn-outline:hover {
+  border-color: var(--oc-accent);
+  color: var(--oc-white);
+}
+
+.oc-btn-solid {
+  background: var(--oc-white);
+  border-color: var(--oc-white);
+  color: var(--oc-dark);
+}
+
+.oc-btn-solid:hover {
+  background: var(--oc-soft);
+  border-color: var(--oc-soft);
+}
+
+/* ---- preference center ---- */
+
+#oc-pc-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--oc-z) + 1);
+  background: var(--oc-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: oc-fade-in 0.25s ease-out;
+}
+
+@keyframes oc-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+#oc-pc {
+  background: var(--oc-mid);
+  width: 100%;
+  max-width: 620px;
+  max-height: 85vh;
+  border: 1px solid var(--oc-border);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.oc-pc-header {
+  padding: 22px 28px;
+  border-bottom: 1px solid var(--oc-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.oc-pc-header h2 {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--oc-white);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+#oc-pc-close {
+  background: none;
+  border: none;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--oc-accent);
+  cursor: pointer;
+  padding: 4px;
+}
+
+#oc-pc-close:focus-visible {
+  outline: 2px solid var(--oc-accent);
+  outline-offset: 2px;
+}
+
+.oc-pc-intro {
+  padding: 16px 28px;
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--oc-muted);
+  border-bottom: 1px solid var(--oc-border);
+  margin: 0;
+}
+
+.oc-pc-body {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.oc-cat { border-bottom: 1px solid var(--oc-border); }
+
+.oc-cat-head {
+  padding: 16px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.oc-cat-head:focus-visible {
+  outline: 2px solid var(--oc-accent);
+  outline-offset: -2px;
+}
+
+.oc-cat-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--oc-white);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.oc-chevron {
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid var(--oc-accent);
+  border-bottom: 1.5px solid var(--oc-accent);
+  transform: rotate(45deg);
+  transition: transform 0.15s ease;
+  flex-shrink: 0;
+}
+
+.oc-cat[data-open="true"] .oc-chevron { transform: rotate(-135deg); }
+
+.oc-always-on {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--oc-accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.oc-cat-detail {
+  padding: 0 28px 18px;
+  display: none;
+}
+
+.oc-cat[data-open="true"] .oc-cat-detail { display: block; }
+
+.oc-cat-detail p {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--oc-muted);
+  margin: 0 0 14px;
+}
+
+.oc-cookie-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11.5px;
+}
+
+.oc-cookie-table th {
+  text-align: left;
+  font-weight: 700;
+  color: var(--oc-white);
+  background: rgba(11, 31, 58, 0.55);
+  padding: 8px 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.oc-cookie-table td {
+  padding: 8px 10px;
+  border-top: 1px solid var(--oc-border);
+  color: var(--oc-muted);
+  vertical-align: top;
+}
+
+/* ---- toggle ---- */
+
+.oc-toggle {
+  width: 38px;
+  height: 20px;
+  border-radius: 10px;
+  background: rgba(143, 163, 187, 0.25);
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s ease;
+}
+
+.oc-toggle[aria-checked="true"]  { background: var(--oc-accent); }
+.oc-toggle[aria-disabled="true"] { background: var(--oc-accent); opacity: 0.5; cursor: not-allowed; }
+
+.oc-toggle-knob {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--oc-white);
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: left 0.15s ease;
+}
+
+.oc-toggle[aria-checked="true"] .oc-toggle-knob { left: 20px; }
+
+.oc-toggle:focus-visible {
+  outline: 2px solid var(--oc-accent);
+  outline-offset: 2px;
+}
+
+.oc-pc-footer {
+  padding: 16px 28px;
+  border-top: 1px solid var(--oc-border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ---- footer re-open launcher ---- */
+
+#oc-launcher {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--oc-font);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+#oc-launcher:hover { color: var(--oc-white); }
+
+#oc-launcher:focus-visible {
+  outline: 2px solid var(--oc-accent);
+  outline-offset: 2px;
+}
+
+/* ---- responsive ---- */
+
+@media (max-width: 768px) {
+  #oc-banner {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px;
+    gap: 16px;
+  }
+  #oc-banner .oc-copy { max-width: none; }
+  #oc-banner .oc-actions { justify-content: stretch; flex-wrap: wrap; }
+  #oc-banner .oc-actions .oc-btn { flex: 1 1 auto; text-align: center; }
+  #oc-banner .oc-actions .oc-btn-text { flex: 0 0 100%; order: 3; text-align: left; padding: 4px; }
+  #oc-pc { max-height: 92vh; }
+  .oc-pc-header, .oc-pc-intro, .oc-cat-head, .oc-cat-detail, .oc-pc-footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #oc-banner, #oc-pc-overlay, .oc-toggle-knob, .oc-chevron {
+    animation: none !important;
+    transition: none !important;
+  }
+}

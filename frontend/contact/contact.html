@@ -42,8 +42,8 @@
         <meta name="geo.position" content="26.9124;75.7873" />
         <meta name="ICBM" content="26.9124, 75.7873" />
 
-        <link rel="icon" type="image/png" href="../global/assets/favicon.png" />
-        <link rel="apple-touch-icon" href="../global/assets/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/global/assets/apple-touch-icon.png" />
 
         <script type="application/ld+json">
         {
@@ -175,6 +175,7 @@
             rel="stylesheet">
 
         <link rel="stylesheet" href="../global/style.css">
+        <link rel="stylesheet" href="/global/cookie-consent.css">
 
 
         <style>
@@ -326,7 +327,6 @@
                 <a href="../index.html">Home</a>
                 <a href="/about">About</a>
                 <a href="/services">Services</a>
-                <a href="/solar">Solar</a>
                 <a href="contact.html" class="active"
                     style="color: white; border-bottom: 1px solid white;">Contact</a>
                 <a href="https://wa.me/919928741229" target="_blank"
@@ -446,8 +446,6 @@
                                     Design</option>
                                 <option value="Construction">Construction
                                     Management</option>
-                                <option value="Solar Panel Installation">Solar
-                                    Panel Installation</option>
                                 <option value="Multiple Services">Multiple
                                     Services</option>
                             </select>
@@ -526,6 +524,8 @@
                         <h4 class="footer-title">STUDIO</h4>
                         <ul class="footer-list">
                             <li><a href='/privacy'>PRIVACY POLICY</a></li>
+                            <li><a href='/cookie-policy'>COOKIE POLICY</a></li>
+                            <li><a role="button" class="footer-list-btn" onclick="window.OrizonsConsent && window.OrizonsConsent.openPreferences()">COOKIE SETTINGS</a></li>
                         </ul>
                     </div>
                     <div class="footer-col-nav">
@@ -635,5 +635,6 @@
                 window.open(`https://wa.me/919928741229?text=${encodeURIComponent(rawText)}`, '_blank');
             }
         </script>
+        <script src="/global/cookie-consent.js"></script>
     </body>
 </html>

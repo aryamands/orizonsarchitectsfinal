@@ -282,6 +282,34 @@ nav a:hover, nav a.active {
     padding-left: 5px;
 }
 
+.footer-list-btn {
+    background: none;
+    border: none;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    color: var(--blueprint);
+    font-family: var(--font-main);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+    display: inline;
+}
+
+.footer-list-btn:hover {
+    color: var(--brand-white);
+    padding-left: 5px;
+}
+
+a[href*="wa.me"]:hover {
+    color: #25D366 !important;
+}
+
 .contact-info-block p {
     margin-bottom: 15px;
     line-height: 1.6;
@@ -1383,10 +1411,10 @@ html {
 }
 
 .nav-consult-btn:hover {
-    background-color: var(--brand-white) !important;
-    color: var(--navy-deep) !important;
-    border-color: var(--brand-white);
-    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+    background-color: #25D366 !important;
+    color: var(--brand-white) !important;
+    border-color: #25D366;
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.25);
     transform: translateY(-2px);
 }
 

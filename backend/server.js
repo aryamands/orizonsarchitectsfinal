@@ -152,6 +152,7 @@ const cleanUrlMap = {
     '/contact': 'contact/contact.html',
     '/solar': 'solar/solar.html',
     '/privacy': 'privacy.html',
+    '/cookie-policy': 'cookie-policy/cookie-policy.html',
     '/blog': 'blog/index.html'
 };
 

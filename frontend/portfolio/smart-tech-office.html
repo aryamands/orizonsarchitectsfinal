@@ -37,8 +37,8 @@
         <meta name="twitter:image"
             content="https://orizons.in/global/assets/og-hero.jpg" />
 
-        <link rel="icon" type="image/png" href="../global/assets/favicon.png" />
-        <link rel="apple-touch-icon" href="../global/assets/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/global/assets/apple-touch-icon.png" />
 
         <script type="application/ld+json">
         {
@@ -84,6 +84,7 @@
             rel="stylesheet">
 
         <link rel="stylesheet" href="../global/style.css">
+        <link rel="stylesheet" href="/global/cookie-consent.css">
 
         <style>
             /* GLOBAL BASE - Normal Vertical Scroll Restored */
@@ -264,7 +265,6 @@
                 <a href="../index.html">Home</a>
                 <a href="/about">About</a>
                 <a href="/services">Services</a>
-                <a href="/solar">Solar</a>
                 <a href="/contact">Contact</a>
                 <a href="https://wa.me/919928741229" target="_blank"
                     class="nav-consult-btn"
@@ -419,6 +419,8 @@
                         <h4 class="footer-title">STUDIO</h4>
                         <ul class="footer-list">
                             <li><a href="/privacy">PRIVACY POLICY</a></li>
+                            <li><a href="/cookie-policy">COOKIE POLICY</a></li>
+                            <li><a role="button" class="footer-list-btn" onclick="window.OrizonsConsent && window.OrizonsConsent.openPreferences()">COOKIE SETTINGS</a></li>
                         </ul>
                     </div>
                     <div class="footer-col-nav">
@@ -505,6 +507,7 @@
                 });
             }
         </script>
+        <script src="/global/cookie-consent.js"></script>
     </body>
 </html>
 
