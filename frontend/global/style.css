@@ -1410,7 +1410,7 @@ html {
     transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
 
-.nav-consult-btn:hover {
+a.nav-consult-btn:hover {
     background-color: #25D366 !important;
     color: var(--brand-white) !important;
     border-color: #25D366;
